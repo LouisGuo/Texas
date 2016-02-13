@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1.Texas
 {
-    class CardSum : IComparable<CardSum>//实现IComparable接口，用来后面的List排序
+    public class CardSum : IComparable<CardSum>//实现IComparable接口，用来后面的List排序
     {
         public int Num { set; get; }
         public int Sum { set; get; }

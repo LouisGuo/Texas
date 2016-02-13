@@ -16,9 +16,9 @@ namespace ConsoleApplication1
             List<Card> cardList = new List<Card>() 
             {
                 new Card(){Num=2,Hua=Color.S},
-                new Card(){Num=12,Hua=Color.S},
-                new Card(){Num=6,Hua=Color.B},
-                new Card(){Num=5,Hua=Color.A},
+                new Card(){Num=3,Hua=Color.S},
+                new Card(){Num=3,Hua=Color.B},
+                new Card(){Num=11,Hua=Color.A},
                 new Card(){Num=6,Hua=Color.S},
                 new Card(){Num=7,Hua=Color.B},
                 new Card(){Num=6,Hua=Color.D},

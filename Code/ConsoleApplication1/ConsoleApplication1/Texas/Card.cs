@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1.Texas
 {
-    enum Color//花色定义
+    public enum Color//花色定义
     {
         A,
         S,
@@ -14,7 +14,7 @@ namespace ConsoleApplication1.Texas
         B
     }
 
-    class Card:IComparable<Card> //实现IComparable接口，用来后面的cardList排序
+    public class Card :IComparable<Card> //实现IComparable接口，用来后面的cardList排序
     {
         public Color Hua { get; set; }// 牌的花色
         public int Num { get; set; } // 牌的大小，2—14
