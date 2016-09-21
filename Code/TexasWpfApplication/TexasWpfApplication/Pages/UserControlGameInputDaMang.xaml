@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="TexasWpfApplication.Pages.UserControlGameInputDaMang"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="171.539" Width="188.462" KeyDown="UserControl_KeyDown">
+    <Grid>
+        <Image Margin="38,-8,24,-22" Source="ActionBox.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.875" ScaleX="1.142"/>
+                    <SkewTransform AngleY="-0.247"/>
+                    <RotateTransform Angle="-90.02"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="imageOK" Margin="131,98,10,23" Source="/Resources/OK.png" Stretch="Fill" MouseEnter="imageOK_MouseEnter" MouseLeave="imageOK_MouseLeave" MouseLeftButtonUp="imageOK_MouseLeftButtonUp" Cursor="Hand"/>
+        <Label Content="大盲：" Foreground="White" HorizontalAlignment="Left" Margin="34,30,0,0" VerticalAlignment="Top"  Height="38" Width="75"/>
+        <TextBox x:Name="TextboxChips" HorizontalAlignment="Left" Height="32" Margin="60,73,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="71" FontSize="24"/>
+
+    </Grid>
+</UserControl>

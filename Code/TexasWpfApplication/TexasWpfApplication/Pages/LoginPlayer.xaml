@@ -1,0 +1,79 @@
+﻿<Window x:Class="TexasWpfApplication.Pages.LoginPlayer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LoginPlayer" Height="768" Width="1024" ResizeMode="NoResize" Left="0" Top="0" WindowStyle="None" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Login_Player.png"/>
+        </Grid.Background>
+        <Label Content="玩家组" HorizontalAlignment="Left" Margin="343.333,420.54,0,0" VerticalAlignment="Top" FontSize="18.667" Panel.ZIndex="2"/>
+        <Label Content="头像" HorizontalAlignment="Left" Margin="362,496.5,0,0" VerticalAlignment="Top" FontSize="18.667" Panel.ZIndex="2"/>
+        <Image x:Name="imageLogin" Margin="621,496,322,238" Source="/Resources/Button_Login.png" Stretch="Fill"  Panel.ZIndex="2" MouseLeftButtonUp="Image_MouseLeftButtonUp" MouseEnter="imageLogin_MouseEnter" MouseLeave="imageLogin_MouseLeave" Cursor="Hand"/>
+        <Label Content="登录" HorizontalAlignment="Left" Margin="639,496,0,0" VerticalAlignment="Top" MouseLeftButtonUp="Image_MouseLeftButtonUp" FontSize="18.667" Foreground="White"  Panel.ZIndex="3"  MouseEnter="imageLogin_MouseEnter" MouseLeave="imageLogin_MouseLeave" Cursor="Hand"/>
+        <ComboBox x:Name="ComboBoxPlayerID" HorizontalAlignment="Left" Margin="444,406,0,0" FontSize="26.667" VerticalAlignment="Top" Width="201" Panel.ZIndex="2" Height="41" BorderBrush="#FFD11111" IsEnabled="False" SelectionChanged="ComboBoxPlayerID_SelectionChanged">
+
+            <ComboBoxItem Content="第一组" FontSize="26.667" Background="{x:Null}"/>
+            <ComboBoxItem Content="第二组" FontSize="26.667" Background="{x:Null}"/>
+            <ComboBoxItem Content="第三组" FontSize="26.667" Background="{x:Null}"/>
+            <ComboBoxItem Content="第四组" FontSize="26.667" Background="{x:Null}"/>
+            <ComboBoxItem Content="第五组" FontSize="26.667" Background="{x:Null}"/>
+            <ComboBoxItem Content="第六组" FontSize="26.667" Background="{x:Null}"/>
+            <ComboBoxItem Content="第七组" FontSize="26.667" Background="{x:Null}"/>
+            <ComboBoxItem Content="第八组" FontSize="26.667" Background="{x:Null}"/>
+        </ComboBox>
+        <ComboBox x:Name="ComboBoxHeadPicture" HorizontalAlignment="Left" Margin="444,482,0,0" VerticalAlignment="Top" Width="78" Height="48" Panel.ZIndex="2" FontSize="36" IsEnabled="False">
+            
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Bear.png" Stretch="Fill"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Beauty.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Cat.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Dog.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Eagle.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Fox.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Horse.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/LeoPard.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Lion.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Panda.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Tiger.png"/>
+            </ComboBoxItem>
+        </ComboBox>
+        <Image x:Name="imageClose" Margin="48,692,928,28" Source="/Resources/Quit.png" Stretch="Fill" MouseEnter="imageClose_MouseEnter" MouseLeave="imageClose_MouseLeave" MouseLeftButtonUp="imageClose_MouseLeftButtonUp" Cursor="Hand"/>
+
+
+        <Grid Name="grid1" Visibility="Hidden">
+            <Image Margin="272,580,271,68" Source="AdminCheckBackground.png" Stretch="Fill"/>
+            <TextBox x:Name="UserName" HorizontalAlignment="Left" Height="23" Margin="347,627,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99"/>
+            <PasswordBox x:Name="Password" HorizontalAlignment="Left" Margin="507,626,0,0" VerticalAlignment="Top" Width="86" Height="23" BorderThickness="1"/>
+            <TextBlock HorizontalAlignment="Left" Margin="287,589,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18.667" Foreground="White"><Run Language="zh-cn" Text="管理员身份校验"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="300,633.76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"><Run Language="zh-cn" Text="用户名"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="470,631,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"><Run Language="zh-cn" Text="密码"/></TextBlock>
+            <Image x:Name="imageConfirm" Margin="567,655,376,79" Source="/Resources/Button_Login.png" Stretch="Fill"  Panel.ZIndex="2" Cursor="Hand" MouseEnter="imageConfirm_MouseEnter" MouseLeave="imageConfirm_MouseLeave" MouseLeftButtonUp="imageConfirm_MouseLeftButtonUp"/>
+            <Label Content="验证" HorizontalAlignment="Left" Margin="585,655,0,0" VerticalAlignment="Top" FontSize="18.667" Foreground="White"  Panel.ZIndex="3" Cursor="Hand" MouseEnter="imageConfirm_MouseEnter" MouseLeftButtonUp="imageConfirm_MouseLeftButtonUp"/>
+            <Image x:Name="imageConcel" Margin="655,655.293,288,78.707" Source="/Resources/Button_Cancel.png" Stretch="Fill"  Panel.ZIndex="2" Cursor="Hand" MouseEnter="imageConcel_MouseEnter" MouseLeave="imageConcel_MouseLeave"/>
+            <Label Content="取消" HorizontalAlignment="Left" Margin="673,655.293,0,0" VerticalAlignment="Top" FontSize="18.667" Foreground="White"  Panel.ZIndex="3" Cursor="Hand" MouseEnter="imageConcel_MouseEnter"/>
+            
+        </Grid>
+        <Image x:Name="imageConcel_Copy" Margin="444,406,396,321" Source="/Resources/Button_Cancel.png" Stretch="Fill"  Panel.ZIndex="2" Cursor="Hand" Opacity="0.01" MouseLeftButtonUp="imageConcel_Copy_MouseLeftButtonUp"/>
+        <Image x:Name="imageHead" Margin="444,482,532,238" Source="/Resources/Head/default.png" Stretch="Fill"  Panel.ZIndex="2" Cursor="Hand" Width="48" Height="48"/>
+    </Grid>
+</Window>

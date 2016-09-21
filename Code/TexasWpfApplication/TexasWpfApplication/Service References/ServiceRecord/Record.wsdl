@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="playerNum" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startChips" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="firstInterest" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="secondInterest" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="thirdInterest" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="fourthInterest" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="fifthInterest" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewRecordResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FinishRecord">
+        <s:complexType />
+      </s:element>
+      <s:element name="FinishRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FinishRecordResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRecords">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRecordsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRecordsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRecordsByPage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="page" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRecordsByPageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRecordsByPageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRecordsNumber">
+        <s:complexType />
+      </s:element>
+      <s:element name="getRecordsNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getRecordsNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRecordForLive">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRecordForLiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRecordForLiveResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRecordByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRecordByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRecordByIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="recordID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteRecordResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestartRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RecordID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestartRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RestartRecordResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:NewRecord" />
+  </wsdl:message>
+  <wsdl:message name="NewRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:NewRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="FinishRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:FinishRecord" />
+  </wsdl:message>
+  <wsdl:message name="FinishRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:FinishRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordsByPageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRecordsByPage" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordsByPageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRecordsByPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRecordsNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:getRecordsNumber" />
+  </wsdl:message>
+  <wsdl:message name="getRecordsNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:getRecordsNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordForLiveSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRecordForLive" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordForLiveSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRecordForLiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteRecord" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestartRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:RestartRecord" />
+  </wsdl:message>
+  <wsdl:message name="RestartRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:RestartRecordResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RecordSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewRecord">
+      <wsdl:input message="tns:NewRecordSoapIn" />
+      <wsdl:output message="tns:NewRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FinishRecord">
+      <wsdl:input message="tns:FinishRecordSoapIn" />
+      <wsdl:output message="tns:FinishRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecords">
+      <wsdl:input message="tns:GetRecordsSoapIn" />
+      <wsdl:output message="tns:GetRecordsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordsByPage">
+      <wsdl:input message="tns:GetRecordsByPageSoapIn" />
+      <wsdl:output message="tns:GetRecordsByPageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRecordsNumber">
+      <wsdl:input message="tns:getRecordsNumberSoapIn" />
+      <wsdl:output message="tns:getRecordsNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordForLive">
+      <wsdl:input message="tns:GetRecordForLiveSoapIn" />
+      <wsdl:output message="tns:GetRecordForLiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordByID">
+      <wsdl:input message="tns:GetRecordByIDSoapIn" />
+      <wsdl:output message="tns:GetRecordByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRecord">
+      <wsdl:input message="tns:DeleteRecordSoapIn" />
+      <wsdl:output message="tns:DeleteRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestartRecord">
+      <wsdl:input message="tns:RestartRecordSoapIn" />
+      <wsdl:output message="tns:RestartRecordSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RecordSoap" type="tns:RecordSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewRecord">
+      <soap:operation soapAction="http://tempuri.org/NewRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinishRecord">
+      <soap:operation soapAction="http://tempuri.org/FinishRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecords">
+      <soap:operation soapAction="http://tempuri.org/GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordsByPage">
+      <soap:operation soapAction="http://tempuri.org/GetRecordsByPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecordsNumber">
+      <soap:operation soapAction="http://tempuri.org/getRecordsNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordForLive">
+      <soap:operation soapAction="http://tempuri.org/GetRecordForLive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordByID">
+      <soap:operation soapAction="http://tempuri.org/GetRecordByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRecord">
+      <soap:operation soapAction="http://tempuri.org/DeleteRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartRecord">
+      <soap:operation soapAction="http://tempuri.org/RestartRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RecordSoap12" type="tns:RecordSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewRecord">
+      <soap12:operation soapAction="http://tempuri.org/NewRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinishRecord">
+      <soap12:operation soapAction="http://tempuri.org/FinishRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecords">
+      <soap12:operation soapAction="http://tempuri.org/GetRecords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordsByPage">
+      <soap12:operation soapAction="http://tempuri.org/GetRecordsByPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecordsNumber">
+      <soap12:operation soapAction="http://tempuri.org/getRecordsNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordForLive">
+      <soap12:operation soapAction="http://tempuri.org/GetRecordForLive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordByID">
+      <soap12:operation soapAction="http://tempuri.org/GetRecordByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRecord">
+      <soap12:operation soapAction="http://tempuri.org/DeleteRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartRecord">
+      <soap12:operation soapAction="http://tempuri.org/RestartRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Record">
+    <wsdl:port name="RecordSoap" binding="tns:RecordSoap">
+      <soap:address location="http://localhost:2986/Api/Record.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RecordSoap12" binding="tns:RecordSoap12">
+      <soap12:address location="http://localhost:2986/Api/Record.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

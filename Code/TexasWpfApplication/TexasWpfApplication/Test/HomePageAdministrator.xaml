@@ -1,0 +1,10 @@
+﻿<Window x:Class="TexasWpfApplication.Test.HomePageAdministrator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="HomePageAdministrator" Height="300" Width="300">
+    <Grid>
+        <Image Source="/Test/Resources/图片1.png" HorizontalAlignment="Left" Height="33" Margin="92,72,0,0" VerticalAlignment="Top" Width="135" RenderTransformOrigin="0.508,0.552" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+        <Image Source="/Test/Resources/图片2.png" HorizontalAlignment="Left" Height="34" Margin="92,154,0,0" VerticalAlignment="Top" Width="135" MouseLeftButtonUp="Image_MouseLeftButtonUp_1"/>
+
+    </Grid>
+</Window>

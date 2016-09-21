@@ -1,0 +1,229 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uControl="clr-namespace:TexasWpfApplication.Pages"
+        x:Class="TexasWpfApplication.Pages.GameInput"
+        Title="GameInput" Height="768" Width="1024" Left="0" Top="0" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded" KeyDown="Window_KeyDown">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="picture7"/>
+    </Window.Triggers>
+    <Grid>
+        <Image Source="pack://siteoforigin:,,,/Resources/Game_Desktop.png" Stretch="Fill" MouseLeftButtonUp="Image_MouseLeftButtonUp_9">
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
+        <Image x:Name="picture8" Margin="268.5,147,675.5,541" Source="/Resources/Head/Default.png" MouseLeftButtonUp="Image_MouseLeftButtonUp_8" Stretch="Fill" Panel.ZIndex="3" Width="48" Height="48" MouseEnter="pictureBack8_MouseEnter" MouseLeave="pictureBack8_MouseLeave" Visibility="Hidden"/>
+        <Image x:Name="picture7" Margin="58.5,232.5,885.5,455.5" Source="/Resources/Head/Default.png" Stretch="Fill" MouseLeftButtonUp="Image_MouseLeftButtonUp_7" Panel.ZIndex="3" Width="48" Height="48" MouseEnter="pictureBack7_MouseEnter" MouseLeave="pictureBack7_MouseLeave" Visibility="Hidden"/>
+        <Image x:Name="picture6" Margin="58.5,526.5,885.5,161.5" Source="/Resources/Head/Default.png" Stretch="Fill" MouseLeftButtonUp="Image_MouseLeftButtonUp_6" Panel.ZIndex="3" Width="48" Height="48" MouseEnter="pictureBack6_MouseEnter" MouseLeave="pictureBack6_MouseLeave" Visibility="Hidden"/>
+        <Image x:Name="picture5" Margin="306,636,638,52" Source="/Resources/Head/Default.png" Stretch="Fill" MouseLeftButtonUp="Image_MouseLeftButtonUp_5" Panel.ZIndex="3" Width="48" Height="48" MouseEnter="pictureBack5_MouseEnter" MouseLeave="pictureBack5_MouseLeave" Visibility="Hidden"/>
+        <Image x:Name="picture4" Margin="654,636,290,52" Source="/Resources/Head/Default.png" Stretch="Fill" MouseLeftButtonUp="Image_MouseLeftButtonUp_4" Panel.ZIndex="3" Width="48" Height="48" MouseEnter="pictureBack4_MouseEnter" MouseLeave="pictureBack4_MouseLeave" Visibility="Hidden"/>
+        <Image x:Name="picture3" Margin="899.5,526.5,44.5,161.5" Source="/Resources/Head/Default.png" Stretch="Fill" MouseLeftButtonUp="Image_MouseLeftButtonUp_3" Panel.ZIndex="3" Width="48" Height="48" MouseEnter="pictureBack3_MouseEnter" MouseLeave="pictureBack3_MouseEnter" Visibility="Hidden"/>
+        <Image x:Name="picture1" Margin="682.5,147,261.5,541" Source="/Resources/Head/Default.png" MouseLeftButtonUp="Image_MouseLeftButtonUp_1" Panel.ZIndex="3" Stretch="Fill" Width="48" Height="48" MouseEnter="pictureBack1_MouseEnter" MouseLeave="pictureBack1_MouseLeave"/>
+        <Image x:Name="picture2" Margin="899.5,232.5,44.5,455.5" Source="/Resources/Head/Default.png" Stretch="Fill" MouseLeftButtonUp="Image_MouseLeftButtonUp_2" Panel.ZIndex="3" Width="48" Height="48" MouseEnter="pictureBack2_MouseEnter" MouseLeave="pictureBack2_MouseLeave" Visibility="Hidden"/>
+        <TextBlock x:Name="Operation8" Text="等待" HorizontalAlignment="Left" Margin="340.713,159.78,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF990000" Visibility="Hidden"/>
+        <TextBlock x:Name="label8" Text="余额：" HorizontalAlignment="Left" Margin="343.553,186.56,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="yue8" Text="5000" HorizontalAlignment="Left" Margin="383.713,186.56,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="Operation7" Text="等待" HorizontalAlignment="Left" Margin="6.166,298.54,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF990000" Visibility="Hidden"/>
+        <TextBlock x:Name="label7" Text="余额：" HorizontalAlignment="Left" Margin="6.332,327.78,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="yue7" Text="5000" HorizontalAlignment="Left" Margin="49.166,327.78,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="Operation6" Text="等待" HorizontalAlignment="Left" Margin="74.213,601.5,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF990000" Visibility="Hidden"/>
+        <TextBlock x:Name="label6" Text="余额：" HorizontalAlignment="Left" Margin="70.553,628.753,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="yue6" Text="5000" HorizontalAlignment="Left" Margin="117.213,628.753,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="Operation5" Text="等待" HorizontalAlignment="Left" Margin="384.353,648.56,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF990000" Visibility="Hidden"/>
+        <TextBlock x:Name="label5" Text="余额：" HorizontalAlignment="Left" Margin="386.563,675.753,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="yue5" Text="5000" HorizontalAlignment="Left" Margin="427.353,675.753,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="Operation4" Text="等待" HorizontalAlignment="Left" Margin="735.213,650.926,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF990000" Visibility="Hidden"/>
+        <TextBlock x:Name="label4" Text="余额：" HorizontalAlignment="Left" Margin="735,678.706,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="yue4" Text="5000" HorizontalAlignment="Left" Margin="775.79,678.706,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="Operation3" Text="等待" HorizontalAlignment="Left" Margin="907,613.127,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF990000" Visibility="Hidden"/>
+        <TextBlock x:Name="label3" Text="余额：" HorizontalAlignment="Left" Margin="909.21,640.28,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="yue3" Text="5000" HorizontalAlignment="Left" Margin="950,640.28,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="Operation2" Text="等待" HorizontalAlignment="Left" Margin="922,308.6,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF990000" Visibility="Hidden"/>
+        <TextBlock x:Name="label2" Text="余额：" HorizontalAlignment="Left" Margin="921.713,335.086,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="yue2" Text="5000" HorizontalAlignment="Left" Margin="969.5,334.88,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="Operation1" Text="等待" HorizontalAlignment="Left" Margin="762,158.78,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF990000" Visibility="Hidden"/>
+        <TextBlock x:Name="label1" Text="余额：" HorizontalAlignment="Left" Margin="761,186.56,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="yue1" Text="5000" HorizontalAlignment="Left" Margin="805,186.56,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <Image x:Name="imageBack" Margin="24.166,710,951.834,10" Source="/Resources/Undo.png" Stretch="Fill" MouseEnter="imageBack_MouseEnter" MouseLeave="imageBack_MouseLeave" MouseLeftButtonUp="imageBack_MouseLeftButtonUp" Cursor="Hand"/>
+        <Image x:Name="imageQuit" Margin="90.5,710,885.5,10" Source="/Resources/Quit.png" Stretch="Fill" MouseEnter="imageQuit_MouseEnter" MouseLeave="imageQuit_MouseLeave" MouseLeftButtonUp="imageQuit_MouseLeftButtonUp" Cursor="Hand"/>
+        <Image x:Name="card81" Margin="285,259.5,699,455.5" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" MouseLeftButtonUp="Image_MouseLeftButtonUp_17" Visibility="Hidden"/>
+        <Image x:Name="card82" Margin="330,259.5,654,455.5" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" MouseLeftButtonUp="Image_MouseLeftButtonUp_17" Visibility="Hidden"/>
+        <Image x:Name="card11" Margin="637.5,259.5,346.5,455.5" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" MouseLeftButtonUp="Image_MouseLeftButtonUp_10" Visibility="Hidden"/>
+        <Image x:Name="card12" Margin="682.5,259.5,301.5,455.5" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" MouseLeftButtonUp="Image_MouseLeftButtonUp_10" Visibility="Hidden"/>
+        <Image x:Name="card52" Margin="335,510,649,205" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" MouseLeftButtonUp="Image_MouseLeftButtonUp_14" Visibility="Hidden"/>
+        <Image x:Name="card51" Margin="380,510,604,205" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" MouseLeftButtonUp="Image_MouseLeftButtonUp_14" Visibility="Hidden"/>
+        <Image x:Name="card42" Margin="649,510,335,205" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" MouseLeftButtonUp="Image_MouseLeftButtonUp_13" Visibility="Hidden"/>
+        <Image x:Name="card41" Margin="694,510,290,205" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" MouseLeftButtonUp="Image_MouseLeftButtonUp_13" Visibility="Hidden"/>
+        <Image x:Name="card72" Margin="192,309.206,792,405.793" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="Image_MouseLeftButtonUp_16" Visibility="Hidden">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="122.204"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="card71" Margin="168,345.206,816,369.793" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="Image_MouseLeftButtonUp_16" Visibility="Hidden">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="122.584"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="card31" Margin="799.5,445.706,184.5,269.293" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="Image_MouseLeftButtonUp_12" Visibility="Hidden">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="122.204"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="card32" Margin="775.5,481.706,208.5,233.293" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="Image_MouseLeftButtonUp_12" Visibility="Hidden">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="122.584"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="card62" Margin="179.5,471,804.5,244" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="Image_MouseLeftButtonUp_15" Visibility="Hidden">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="46.433"/>
+                    <TranslateTransform X="6.993" Y="-16.303"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="card61" Margin="224.5,471,759.5,244" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="Image_MouseLeftButtonUp_15" Visibility="Hidden">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="46.433"/>
+                    <TranslateTransform X="-6.993" Y="16.303"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="card21" Margin="772,324,212,391" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="Image_MouseLeftButtonUp_11" Visibility="Hidden">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="46.433"/>
+                    <TranslateTransform X="6.993" Y="-16.303"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="card22" Margin="817,324,167,391" Source="/Resources/Gray.png" Stretch="Fill" Height="53" Width="40" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="Image_MouseLeftButtonUp_11" Visibility="Hidden">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="46.433"/>
+                    <TranslateTransform X="-6.993" Y="16.303"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="card1" Margin="379.5,416,604.5,299" Source="/Resources/Gray_1.png" Stretch="Fill" Height="53" Width="40"/>
+        <Image x:Name="card2" Margin="424.5,416,559.5,299" Source="/Resources/Gray_1.png" Stretch="Fill" Height="53" Width="40"/>
+        <Image x:Name="card3" Margin="474,416,510,299" Source="/Resources/Gray_1.png" Stretch="Fill" Height="53" Width="40"/>
+        <Image x:Name="card4" Margin="519,416,465,299" Source="/Resources/Gray_2.png" Stretch="Fill" Height="53" Width="40"/>
+        <Image x:Name="card5" Margin="565,416,419,299" Source="/Resources/Gray_3.png" Stretch="Fill" Height="53" Width="40"/>
+        <Image x:Name="imageChips4" Margin="516.853,382,477.147,356" Source="/Resources/Chips/Chips_Green.png" Stretch="Fill" Visibility="Hidden"/>
+        <Image x:Name="imageChips5" Margin="566.853,382,427.147,356" Source="/Resources/Chips/Chips_Orange.png" Stretch="Fill" Visibility="Hidden"/>
+        <Image x:Name="imageChips6" Margin="608.853,382,385.147,356" Source="/Resources/Chips/Chips_Pink.png" Stretch="Fill" Visibility="Hidden"/>
+        <Image x:Name="imageChips7" Margin="657.853,382,336.147,356" Source="/Resources/Chips/Chips_Purple.png" Stretch="Fill" Visibility="Hidden"/>
+        <Image Margin="464.287,106.5,469.713,566.5" Source="/Resources/heguan.png" Stretch="Fill" MouseLeftButtonUp="Image_MouseLeftButtonUp" Panel.ZIndex="3" Width="48" Height="48" MouseEnter="pictureBack_MouseEnter" MouseLeave="pictureBack_MouseLeave" />
+
+        <uControl:UserControlGameInput1  Visibility="Hidden"  Panel.ZIndex="5" x:Name="heguan" Margin="380,-320,0,0" />
+        <uControl:UserControlGameInput2  Width="309" Height="193.847" Visibility="Hidden"  Panel.ZIndex="5" HorizontalAlignment="Left" x:Name="playerxiazhu" Margin="554,282,0,0" VerticalAlignment="Top"/>
+        <uControl:UserControlGameInput3 Width="309" Height="193.847" Visibility="Hidden"  Panel.ZIndex="5" HorizontalAlignment="Left" x:Name="playerxiazhuopsite" Margin="380,100,0,0" VerticalAlignment="Top"/>
+
+
+        <uControl:UserControlGameInputPrivateCard Visibility="Hidden"  Panel.ZIndex="10" HorizontalAlignment="Left" x:Name="privateCard"  Margin="90,106,0,0" VerticalAlignment="Top" />
+        <uControl:UserControlGameInputXiaoMang Visibility="Hidden"  Panel.ZIndex="10" x:Name="xiaomang" HorizontalAlignment="Left" Margin="90,280,0,0" VerticalAlignment="Top"/>
+        <uControl:UserControlGameInputDaMang Visibility="Hidden"  Panel.ZIndex="10" x:Name="damang" HorizontalAlignment="Left" Margin="276,106,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Bet1" Text="" HorizontalAlignment="Left" Margin="794,158.78,0,0" VerticalAlignment="Top" Foreground="#FF990000" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="Bet2" Text="" HorizontalAlignment="Left" Margin="954,307.1,0,0" VerticalAlignment="Top" Foreground="#FF990000" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="Bet3" Text="" HorizontalAlignment="Left" Margin="940.787,612.5,0,0" VerticalAlignment="Top" Foreground="#FF990000" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="Bet4" Text="" HorizontalAlignment="Left" Margin="766.713,650.926,0,0" VerticalAlignment="Top" Foreground="#FF990000" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="Bet5" Text="" HorizontalAlignment="Left" Margin="415.853,647.973,0,0" VerticalAlignment="Top" Foreground="#FF990000" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="Bet6" Text="" HorizontalAlignment="Left" Margin="105.213,602,0,0" VerticalAlignment="Top" Foreground="#FF990000" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="Bet7" Text="" HorizontalAlignment="Left" Margin="38,300,0,0" VerticalAlignment="Top" Foreground="#FF990000" FontSize="14" Visibility="Hidden"/>
+        <TextBlock x:Name="Bet8" Text="" HorizontalAlignment="Left" Margin="376,160,0,0" VerticalAlignment="Top" Foreground="#FF990000" FontSize="14" Visibility="Hidden"/>
+        <Image x:Name="imageChips1" Margin="380.853,381,613.147,357" Source="/Resources/Chips/Chips_Blue.png" Stretch="Fill" Visibility="Hidden"/>
+        <Image x:Name="imageChips2" Margin="430.853,381,563.147,357" Source="/Resources/Chips/Chips_Brown.png" Stretch="Fill" Visibility="Hidden"/>
+        <Image x:Name="imageChips3" Margin="472.853,381,521.147,357" Source="/Resources/Chips/Chips_Gray.png" Stretch="Fill" Visibility="Hidden"/>
+        <TextBlock x:Name="ChipsInPool1" HorizontalAlignment="Left" Margin="380.853,353,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="ChipsInPool2" HorizontalAlignment="Left" Margin="425.853,353,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="ChipsInPool3" HorizontalAlignment="Left" Margin="470.853,353,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="ChipsInPool4" HorizontalAlignment="Left" Margin="517.853,353,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="ChipsInPool5" HorizontalAlignment="Left" Margin="562.853,353,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="ChipsInPool6" HorizontalAlignment="Left" Margin="607.853,353,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="ChipsInPool7" HorizontalAlignment="Left" Margin="657.853,353,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Image x:Name="pictureBack1" Margin="682,147,262,541" Source="/Resources/HeadBack.png" Stretch="Fill" Width="72" Height="72" MouseEnter="pictureBack1_MouseEnter" MouseLeave="pictureBack1_MouseLeave" Visibility="Hidden" />
+        <Image x:Name="pictureBack2" Margin="900,232,44,456" Source="/Resources/HeadBack.png" Stretch="Fill" Width="72" Height="72" MouseEnter="pictureBack2_MouseEnter" MouseLeave="pictureBack2_MouseLeave" Visibility="Hidden" />
+        <Image x:Name="pictureBack3" Margin="900,526,44,162" Source="/Resources/HeadBack.png" Stretch="Fill" Width="72" Height="72" MouseEnter="pictureBack3_MouseEnter" MouseLeave="pictureBack3_MouseLeave" Visibility="Hidden" />
+        <Image x:Name="pictureBack4" Margin="654,636,290,52" Source="/Resources/HeadBack.png" Stretch="Fill" Width="72" Height="72" MouseEnter="pictureBack4_MouseEnter" MouseLeave="pictureBack4_MouseLeave" Visibility="Hidden" />
+        <Image x:Name="pictureBack5" Margin="306,636,638,52" Source="/Resources/HeadBack.png" Stretch="Fill" Width="72" Height="72" MouseEnter="pictureBack5_MouseEnter" MouseLeave="pictureBack5_MouseLeave" Visibility="Hidden" />
+        <Image x:Name="pictureBack6" Margin="58,526,886,162" Source="/Resources/HeadBack.png" Stretch="Fill" Width="72" Height="72" MouseEnter="pictureBack6_MouseEnter" MouseLeave="pictureBack6_MouseLeave" Visibility="Hidden" />
+        <Image x:Name="pictureBack7" Margin="58,232,886,456" Source="/Resources/HeadBack.png" Stretch="Fill" Width="72" Height="72" MouseEnter="pictureBack7_MouseEnter" MouseLeave="pictureBack7_MouseLeave" Visibility="Hidden" />
+        <Image x:Name="pictureBack8" Margin="268,147,676,541" Source="/Resources/HeadBack.png" Stretch="Fill" Width="72" Height="72" MouseEnter="pictureBack8_MouseEnter" MouseLeave="pictureBack8_MouseLeave" Visibility="Hidden" />
+        <Image x:Name="pictureBack" Margin="471,117,478,571" Source="/Resources/HeadBack.png" Stretch="Fill" Width="72" Height="72" MouseEnter="pictureBack_MouseEnter" MouseLeave="pictureBack_MouseLeave"/>
+        <Label x:Name="PlayerLabel1" Content="1" HorizontalAlignment="Left" Margin="729,194,0,0" VerticalAlignment="Top" Width="25" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Panel.ZIndex="4" Foreground="White" FontWeight="Bold" FontSize="13.333" Visibility="Hidden">
+            <Label.Background>
+                <ImageBrush ImageSource="NumBack.png"/>
+            </Label.Background>
+        </Label>
+        <Label x:Name="PlayerLabel2" Content="2" HorizontalAlignment="Left" Margin="947,278,0,0" VerticalAlignment="Top" Width="25" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Panel.ZIndex="4" Foreground="White" FontWeight="Bold" FontSize="13.333" Visibility="Hidden">
+            <Label.Background>
+                <ImageBrush ImageSource="NumBack.png"/>
+            </Label.Background>
+        </Label>
+        <Label x:Name="PlayerLabel3" Content="3" HorizontalAlignment="Left" Margin="947,572,0,0" VerticalAlignment="Top" Width="25" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Panel.ZIndex="4" Foreground="White" FontWeight="Bold" FontSize="13.333" Visibility="Hidden">
+            <Label.Background>
+                <ImageBrush ImageSource="NumBack.png"/>
+            </Label.Background>
+        </Label>
+        <Label x:Name="PlayerLabel4" Content="4" HorizontalAlignment="Left" Margin="701,683,0,0" VerticalAlignment="Top" Width="25" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Panel.ZIndex="4" Foreground="White" FontWeight="Bold" FontSize="13.333" Visibility="Hidden">
+            <Label.Background>
+                <ImageBrush ImageSource="NumBack.png"/>
+            </Label.Background>
+        </Label>
+        <Label x:Name="PlayerLabel5" Content="5" HorizontalAlignment="Left" Margin="353,683,0,0" VerticalAlignment="Top" Width="25" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Panel.ZIndex="4" Foreground="White" FontWeight="Bold" FontSize="13.333" Visibility="Hidden">
+            <Label.Background>
+                <ImageBrush ImageSource="NumBack.png"/>
+            </Label.Background>
+        </Label>
+        <Label x:Name="PlayerLabel6" Content="6" HorizontalAlignment="Left" Margin="105,572,0,0" VerticalAlignment="Top" Width="25" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Panel.ZIndex="4" Foreground="White" FontWeight="Bold" FontSize="13.333" Visibility="Hidden">
+            <Label.Background>
+                <ImageBrush ImageSource="NumBack.png"/>
+            </Label.Background>
+        </Label>
+        <Label x:Name="PlayerLabel7" Content="7" HorizontalAlignment="Left" Margin="104.213,279,0,0" VerticalAlignment="Top" Width="25" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Panel.ZIndex="4" Foreground="White" FontWeight="Bold" FontSize="13.333" Visibility="Hidden">
+            <Label.Background>
+                <ImageBrush ImageSource="NumBack.png"/>
+            </Label.Background>
+        </Label>
+        <Label x:Name="PlayerLabel8" Content="8" HorizontalAlignment="Left" Margin="315,193,0,0" VerticalAlignment="Top" Width="25" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Panel.ZIndex="4" Foreground="White" FontWeight="Bold" FontSize="13.333" Visibility="Hidden">
+            <Label.Background>
+                <ImageBrush ImageSource="NumBack.png"/>
+            </Label.Background>
+        </Label>
+        <uControl:UserControlGameLive x:Name="lineornot" HorizontalAlignment="Left" Margin="416,29,0,0" VerticalAlignment="Top" Width="173" Visibility="Hidden"/>
+    </Grid>
+</Window>

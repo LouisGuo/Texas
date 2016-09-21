@@ -1,0 +1,25 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="TexasWpfApplication.Pages.AdminMenu"
+        Title="AdminMenu" Height="768" Width="1024" WindowStyle="None" ResizeMode="NoResize" Top="0" Left="0">
+    <Window.Resources>
+        <Storyboard x:Key="OnMouseEnter1"/>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Mouse.MouseEnter" SourceName="imageNEW">
+            <BeginStoryboard Storyboard="{StaticResource OnMouseEnter1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Mouse.MouseLeave" SourceName="imageNEW">
+            <BeginStoryboard Storyboard="{StaticResource OnMouseEnter1}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Image Source="/Resources/Admin_Menu.png" Stretch="Fill"/>
+        <Image x:Name="imageNEW" Margin="149.254,344.776,568.746,245.224" Source="/Resources/RecordNew.png" Stretch="Fill" MouseLeftButtonUp="Image_MouseLeftButtonUp_1" MouseEnter="image_MouseEnter" MouseLeave="image_MouseLeave" Cursor="Hand"/>
+        <Image x:Name="imageOld" Margin="571.642,344.776,146.358,245.224" Source="/Resources/ReplayHistory.png" Stretch="Fill" MouseLeftButtonUp="Image_MouseLeftButtonUp" MouseEnter="imageOld_MouseEnter" MouseLeave="imageOld_MouseLeave" Cursor="Hand"/>
+        <Image x:Name="imagePre" Margin="27,696,949,24" Source="/Resources/Pre_Step.png" Stretch="Fill" MouseEnter="imagePre_MouseEnter" MouseLeave="imagePre_MouseLeave" MouseLeftButtonUp="imagePre_MouseLeftButtonUp" Cursor="Hand"/>
+        <Image x:Name="imageClose" Margin="133,696,843,24" Source="/Resources/Quit.png" Stretch="Fill" MouseEnter="imageClose_MouseEnter" MouseLeave="imageClose_MouseLeave" MouseLeftButtonUp="imageClose_MouseLeftButtonUp" Cursor="Hand"/>
+        <Image x:Name="imageChangePassword" Margin="80,696,896,24" Source="/Resources/ChangePass.png" Stretch="Fill"  Cursor="Hand" MouseEnter="imageClose_Copy_MouseEnter" MouseLeave="imageClose_Copy_MouseLeave" MouseLeftButtonUp="imageClose_Copy_MouseLeftButtonUp"/>
+    </Grid>
+</Window>

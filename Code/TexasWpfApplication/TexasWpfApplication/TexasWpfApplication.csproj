@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6081CE10-E238-442D-9A47-513F6F5346D3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TexasWpfApplication</RootNamespace>
+    <AssemblyName>TexasAdmin</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ExpressionBlendVersion>12.0.41002.1</ExpressionBlendVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Common\Display.cs" />
+    <Compile Include="Common\IsConnected.cs" />
+    <Compile Include="Common\MyService.cs" />
+    <Compile Include="Pages\ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GameInput.xaml.cs">
+      <DependentUpon>GameInput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GameLive.xaml.cs">
+      <DependentUpon>GameLive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GamePlayBack.xaml.cs">
+      <DependentUpon>GamePlayBack.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GameResult.xaml.cs">
+      <DependentUpon>GameResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoginAdmin.xaml.cs">
+      <DependentUpon>LoginAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminMenu.xaml.cs">
+      <DependentUpon>AdminMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoginPlayer.xaml.cs">
+      <DependentUpon>LoginPlayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SelectOld.xaml.cs">
+      <DependentUpon>SelectOld.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StartNew.xaml.cs">
+      <DependentUpon>StartNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserControlChipsInPool.xaml.cs">
+      <DependentUpon>UserControlChipsInPool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserControlGameInput1.xaml.cs">
+      <DependentUpon>UserControlGameInput1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserControlGameInput2.xaml.cs">
+      <DependentUpon>UserControlGameInput2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserControlGameInput3.xaml.cs">
+      <DependentUpon>UserControlGameInput3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserControlGameInputDaMang.xaml.cs">
+      <DependentUpon>UserControlGameInputDaMang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserControlGameInputPrivateCard.xaml.cs">
+      <DependentUpon>UserControlGameInputPrivateCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserControlGameInputXiaoMang.xaml.cs">
+      <DependentUpon>UserControlGameInputXiaoMang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserControlGameLive.xaml.cs">
+      <DependentUpon>UserControlGameLive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserControlGameResult.xaml.cs">
+      <DependentUpon>UserControlGameResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserControlSelectOld.xaml.cs">
+      <DependentUpon>UserControlSelectOld.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceAdministrator\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceBet\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceCard\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceGame\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicePlayerChip\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceRecord\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Test\GameTypeIn.xaml.cs">
+      <DependentUpon>GameTypeIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Test\HomePageAdministrator.xaml.cs">
+      <DependentUpon>HomePageAdministrator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Test\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Test\UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Test\WatcherLogin.xaml.cs">
+      <DependentUpon>WatcherLogin.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Pages\ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GameInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GameLive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GamePlayBack.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GameResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LoginAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AdminMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LoginPlayer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SelectOld.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StartNew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserControlChipsInPool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserControlGameInput1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserControlGameInput2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserControlGameInput3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserControlGameInputDaMang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserControlGameInputPrivateCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserControlGameInputXiaoMang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserControlGameLive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserControlGameResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserControlSelectOld.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Test\GameTypeIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Test\HomePageAdministrator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Test\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Test\UserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Test\WatcherLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Resources\Game_Desktop.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <None Include="Resources\Login_admin.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Login_Player.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Service References\ServiceAdministrator\Administrator.wsdl" />
+    <None Include="Service References\ServiceBet\Bet.wsdl" />
+    <None Include="Service References\ServiceCard\Card.wsdl" />
+    <None Include="Service References\ServicePlayerChip\PlayerChip.wsdl" />
+    <None Include="Service References\ServiceRecord\Record.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pages\ActionBox.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pages\ActionBox2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pages\AdminCheckBackground.png" />
+    <Resource Include="Pages\Image1.png" />
+    <Resource Include="Pages\NumBack.png" />
+    <Resource Include="Pages\OK.png" />
+    <Resource Include="Pages\RowBackground.png" />
+    <Resource Include="Resources\line.png" />
+    <Resource Include="Resources\b.png" />
+    <Resource Include="Pages\Image4.png" />
+    <Resource Include="Resources\heguan.png" />
+    <Resource Include="Resources\Gray.png" />
+    <Resource Include="Resources\Image2.png" />
+    <Resource Include="Resources\Select_Old.gif" />
+    <Resource Include="Resources\Admin_Back.png" />
+    <Resource Include="Resources\Admin_Menu.png" />
+    <Resource Include="Resources\Button_Login.png" />
+    <Resource Include="Resources\RecordNew.png" />
+    <Resource Include="Resources\ReplayHistory.png" />
+    <Resource Include="Resources\Image2LoginPlayer.png" />
+    <Resource Include="Resources\Image3LoginPlayer.png" />
+    <Resource Include="Resources\Image3StartNew.png" />
+    <Resource Include="Resources\Image4login.png" />
+    <Resource Include="Resources\Image5login.png" />
+    <Resource Include="Test\Resources\Table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Test\Resources\图片1.png" />
+    <Resource Include="Test\Resources\图片2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Test\Resources\Heguan.png" />
+    <Resource Include="Test\Resources\Player.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Test\Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Test\Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Test\Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image2StartNew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Button_Login_hover.png" />
+    <Resource Include="Resources\Next_Game_hover.png" />
+    <Resource Include="Resources\Next_Step_hover.png" />
+    <Resource Include="Resources\OK_hover.png" />
+    <Resource Include="Resources\Pre_Game_hover.png" />
+    <Resource Include="Resources\Pre_Step_hover.png" />
+    <Resource Include="Resources\Quit_hover.png" />
+    <Resource Include="Resources\RecordNew_hover.png" />
+    <Resource Include="Resources\ReplayHistory_hover.png" />
+    <Resource Include="Resources\Result_hover.png" />
+    <Resource Include="Resources\Undo_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Gray_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Gray_2.png" />
+    <Resource Include="Resources\Gray_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Quit.png" />
+    <Resource Include="Resources\Undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Chips.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Home.png" />
+    <Resource Include="Resources\Home_hover.png" />
+    <Resource Include="Resources\Next_Game.png" />
+    <Resource Include="Resources\Next_Step.png" />
+    <Resource Include="Resources\OK.png" />
+    <Resource Include="Resources\Pre_Game.png" />
+    <Resource Include="Resources\Pre_Step.png" />
+    <Resource Include="Resources\Result.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Close.png" />
+    <Resource Include="Resources\Close_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SelectedText.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cards\BACK.png" />
+    <Resource Include="Resources\Cards\C01.png" />
+    <Resource Include="Resources\Cards\C02.png" />
+    <Resource Include="Resources\Cards\C03.png" />
+    <Resource Include="Resources\Cards\C04.png" />
+    <Resource Include="Resources\Cards\C05.png" />
+    <Resource Include="Resources\Cards\C06.png" />
+    <Resource Include="Resources\Cards\C07.png" />
+    <Resource Include="Resources\Cards\C08.png" />
+    <Resource Include="Resources\Cards\C09.png" />
+    <Resource Include="Resources\Cards\C10.png" />
+    <Resource Include="Resources\Cards\C11.png" />
+    <Resource Include="Resources\Cards\C12.png" />
+    <Resource Include="Resources\Cards\C13.png" />
+    <Resource Include="Resources\Cards\D01.png" />
+    <Resource Include="Resources\Cards\D02.png" />
+    <Resource Include="Resources\Cards\D03.png" />
+    <Resource Include="Resources\Cards\D04.png" />
+    <Resource Include="Resources\Cards\D05.png" />
+    <Resource Include="Resources\Cards\D06.png" />
+    <Resource Include="Resources\Cards\D07.png" />
+    <Resource Include="Resources\Cards\D08.png" />
+    <Resource Include="Resources\Cards\D09.png" />
+    <Resource Include="Resources\Cards\D10.png" />
+    <Resource Include="Resources\Cards\D11.png" />
+    <Resource Include="Resources\Cards\D12.png" />
+    <Resource Include="Resources\Cards\D13.png" />
+    <Resource Include="Resources\Cards\Gray.png" />
+    <Resource Include="Resources\Cards\Gray_1.png" />
+    <Resource Include="Resources\Cards\Gray_2.png" />
+    <Resource Include="Resources\Cards\Gray_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Head\Bear.png" />
+    <Resource Include="Resources\Head\Beauty.png" />
+    <Resource Include="Resources\Head\Cat.png" />
+    <Resource Include="Resources\Head\Dog.png" />
+    <Resource Include="Resources\Head\Eagle.png" />
+    <Resource Include="Resources\Head\Fox.png" />
+    <Resource Include="Resources\Head\Horse.png" />
+    <Resource Include="Resources\Head\Leopard.png" />
+    <Resource Include="Resources\Head\Lion.png" />
+    <Resource Include="Resources\Head\Panda.png" />
+    <Resource Include="Resources\Head\Tiger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceGame\Game.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceGame\Game.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceGame\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceGame\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceGame\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Head\default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\HeadBack.png" />
+    <Resource Include="Resources\HeadBack_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Button_Cancel.png" />
+    <Resource Include="Resources\Button_Cance_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ActiveHeadBack.png" />
+    <Resource Include="Resources\ActiveHeadBack_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceAdministrator\" />
+    <WCFMetadataStorage Include="Service References\ServiceBet\" />
+    <WCFMetadataStorage Include="Service References\ServiceCard\" />
+    <WCFMetadataStorage Include="Service References\ServicePlayerChip\" />
+    <WCFMetadataStorage Include="Service References\ServiceRecord\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceBet\Bet.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceBet\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceBet\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceBet\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ChangePass.png" />
+    <Resource Include="Resources\ChangePass_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceAdministrator\Administrator.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceAdministrator\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceAdministrator\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceAdministrator\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicePlayerChip\PlayerChip.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicePlayerChip\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicePlayerChip\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicePlayerChip\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceRecord\Record.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceRecord\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceRecord\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceRecord\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cards\H01.png" />
+    <Resource Include="Resources\Cards\H02.png" />
+    <Resource Include="Resources\Cards\H03.png" />
+    <Resource Include="Resources\Cards\H04.png" />
+    <Resource Include="Resources\Cards\H05.png" />
+    <Resource Include="Resources\Cards\H06.png" />
+    <Resource Include="Resources\Cards\H07.png" />
+    <Resource Include="Resources\Cards\H08.png" />
+    <Resource Include="Resources\Cards\H09.png" />
+    <Resource Include="Resources\Cards\H10.png" />
+    <Resource Include="Resources\Cards\H11.png" />
+    <Resource Include="Resources\Cards\H12.png" />
+    <Resource Include="Resources\Cards\H13.png" />
+    <Resource Include="Resources\Cards\S01.png" />
+    <Resource Include="Resources\Cards\S02.png" />
+    <Resource Include="Resources\Cards\S03.png" />
+    <Resource Include="Resources\Cards\S04.png" />
+    <Resource Include="Resources\Cards\S05.png" />
+    <Resource Include="Resources\Cards\S06.png" />
+    <Resource Include="Resources\Cards\S07.png" />
+    <Resource Include="Resources\Cards\S08.png" />
+    <Resource Include="Resources\Cards\S09.png" />
+    <Resource Include="Resources\Cards\S10.png" />
+    <Resource Include="Resources\Cards\S11.png" />
+    <Resource Include="Resources\Cards\S12.png" />
+    <Resource Include="Resources\Cards\S13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ChipsDetail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Chips\Chips_Blue.png" />
+    <Resource Include="Resources\Chips\Chips_Brown.png" />
+    <Resource Include="Resources\Chips\Chips_Gray.png" />
+    <Resource Include="Resources\Chips\Chips_Green.png" />
+    <Resource Include="Resources\Chips\Chips_Orange.png" />
+    <Resource Include="Resources\Chips\Chips_Pink.png" />
+    <Resource Include="Resources\Chips\Chips_Purple.png" />
+    <Resource Include="Resources\Chips\Chips_Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceCard\Card.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceCard\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceCard\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceCard\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

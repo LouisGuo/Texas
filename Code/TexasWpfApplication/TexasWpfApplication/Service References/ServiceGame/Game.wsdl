@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewGame">
+        <s:complexType />
+      </s:element>
+      <s:element name="NewGameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewGameResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FinishGame">
+        <s:complexType />
+      </s:element>
+      <s:element name="FinishGameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FinishGameResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGames">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="recordID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGamesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGamesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGameByGameID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="gameID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGameByGameIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGameByGameIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewGameSoapIn">
+    <wsdl:part name="parameters" element="tns:NewGame" />
+  </wsdl:message>
+  <wsdl:message name="NewGameSoapOut">
+    <wsdl:part name="parameters" element="tns:NewGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="FinishGameSoapIn">
+    <wsdl:part name="parameters" element="tns:FinishGame" />
+  </wsdl:message>
+  <wsdl:message name="FinishGameSoapOut">
+    <wsdl:part name="parameters" element="tns:FinishGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGamesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGames" />
+  </wsdl:message>
+  <wsdl:message name="GetGamesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGameByGameIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGameByGameID" />
+  </wsdl:message>
+  <wsdl:message name="GetGameByGameIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGameByGameIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GameSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewGame">
+      <wsdl:input message="tns:NewGameSoapIn" />
+      <wsdl:output message="tns:NewGameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FinishGame">
+      <wsdl:input message="tns:FinishGameSoapIn" />
+      <wsdl:output message="tns:FinishGameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGames">
+      <wsdl:input message="tns:GetGamesSoapIn" />
+      <wsdl:output message="tns:GetGamesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameByGameID">
+      <wsdl:input message="tns:GetGameByGameIDSoapIn" />
+      <wsdl:output message="tns:GetGameByGameIDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GameSoap" type="tns:GameSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewGame">
+      <soap:operation soapAction="http://tempuri.org/NewGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinishGame">
+      <soap:operation soapAction="http://tempuri.org/FinishGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGames">
+      <soap:operation soapAction="http://tempuri.org/GetGames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameByGameID">
+      <soap:operation soapAction="http://tempuri.org/GetGameByGameID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GameSoap12" type="tns:GameSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewGame">
+      <soap12:operation soapAction="http://tempuri.org/NewGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinishGame">
+      <soap12:operation soapAction="http://tempuri.org/FinishGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGames">
+      <soap12:operation soapAction="http://tempuri.org/GetGames" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameByGameID">
+      <soap12:operation soapAction="http://tempuri.org/GetGameByGameID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Game">
+    <wsdl:port name="GameSoap" binding="tns:GameSoap">
+      <soap:address location="http://localhost:2986/Api/Game.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GameSoap12" binding="tns:GameSoap12">
+      <soap12:address location="http://localhost:2986/Api/Game.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

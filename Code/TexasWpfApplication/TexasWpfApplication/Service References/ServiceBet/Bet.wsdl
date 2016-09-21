@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDaMangChips">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDaMangChipsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDaMangChipsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDaMangPlayerID">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDaMangPlayerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDaMangPlayerIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetXiaoMangPlayerID">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetXiaoMangPlayerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetXiaoMangPlayerIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewBet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="playerID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="operation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="chipsBet" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewBetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewBetResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UndoPreOperation">
+        <s:complexType />
+      </s:element>
+      <s:element name="UndoPreOperationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UndoPreOperationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBetForLive">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBetForLiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBetForLiveResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBetForLive1">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBetForLive1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBetForLive1Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBetByRecordID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="recordID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBetByRecordIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBetByRecordIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllBetInUnfinishedRecord">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllBetInUnfinishedRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllBetInUnfinishedRecordResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNextPlayerIDForLive1">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNextPlayerIDForLive1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNextPlayerIDForLive1Result" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNextPlayerIDForLive">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNextPlayerIDForLiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNextPlayerIDForLiveResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDaMangChipsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDaMangChips" />
+  </wsdl:message>
+  <wsdl:message name="GetDaMangChipsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDaMangChipsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDaMangPlayerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDaMangPlayerID" />
+  </wsdl:message>
+  <wsdl:message name="GetDaMangPlayerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDaMangPlayerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetXiaoMangPlayerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetXiaoMangPlayerID" />
+  </wsdl:message>
+  <wsdl:message name="GetXiaoMangPlayerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetXiaoMangPlayerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewBetSoapIn">
+    <wsdl:part name="parameters" element="tns:NewBet" />
+  </wsdl:message>
+  <wsdl:message name="NewBetSoapOut">
+    <wsdl:part name="parameters" element="tns:NewBetResponse" />
+  </wsdl:message>
+  <wsdl:message name="UndoPreOperationSoapIn">
+    <wsdl:part name="parameters" element="tns:UndoPreOperation" />
+  </wsdl:message>
+  <wsdl:message name="UndoPreOperationSoapOut">
+    <wsdl:part name="parameters" element="tns:UndoPreOperationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBetForLiveSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBetForLive" />
+  </wsdl:message>
+  <wsdl:message name="GetBetForLiveSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBetForLiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBetForLive1SoapIn">
+    <wsdl:part name="parameters" element="tns:GetBetForLive1" />
+  </wsdl:message>
+  <wsdl:message name="GetBetForLive1SoapOut">
+    <wsdl:part name="parameters" element="tns:GetBetForLive1Response" />
+  </wsdl:message>
+  <wsdl:message name="GetBetByRecordIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBetByRecordID" />
+  </wsdl:message>
+  <wsdl:message name="GetBetByRecordIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBetByRecordIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBetInUnfinishedRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllBetInUnfinishedRecord" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBetInUnfinishedRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllBetInUnfinishedRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNextPlayerIDForLive1SoapIn">
+    <wsdl:part name="parameters" element="tns:GetNextPlayerIDForLive1" />
+  </wsdl:message>
+  <wsdl:message name="GetNextPlayerIDForLive1SoapOut">
+    <wsdl:part name="parameters" element="tns:GetNextPlayerIDForLive1Response" />
+  </wsdl:message>
+  <wsdl:message name="GetNextPlayerIDForLiveSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNextPlayerIDForLive" />
+  </wsdl:message>
+  <wsdl:message name="GetNextPlayerIDForLiveSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNextPlayerIDForLiveResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BetSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDaMangChips">
+      <wsdl:input message="tns:GetDaMangChipsSoapIn" />
+      <wsdl:output message="tns:GetDaMangChipsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDaMangPlayerID">
+      <wsdl:input message="tns:GetDaMangPlayerIDSoapIn" />
+      <wsdl:output message="tns:GetDaMangPlayerIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetXiaoMangPlayerID">
+      <wsdl:input message="tns:GetXiaoMangPlayerIDSoapIn" />
+      <wsdl:output message="tns:GetXiaoMangPlayerIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewBet">
+      <wsdl:input message="tns:NewBetSoapIn" />
+      <wsdl:output message="tns:NewBetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UndoPreOperation">
+      <wsdl:input message="tns:UndoPreOperationSoapIn" />
+      <wsdl:output message="tns:UndoPreOperationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBetForLive">
+      <wsdl:input message="tns:GetBetForLiveSoapIn" />
+      <wsdl:output message="tns:GetBetForLiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBetForLive1">
+      <wsdl:input message="tns:GetBetForLive1SoapIn" />
+      <wsdl:output message="tns:GetBetForLive1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBetByRecordID">
+      <wsdl:input message="tns:GetBetByRecordIDSoapIn" />
+      <wsdl:output message="tns:GetBetByRecordIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBetInUnfinishedRecord">
+      <wsdl:input message="tns:GetAllBetInUnfinishedRecordSoapIn" />
+      <wsdl:output message="tns:GetAllBetInUnfinishedRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNextPlayerIDForLive1">
+      <wsdl:input message="tns:GetNextPlayerIDForLive1SoapIn" />
+      <wsdl:output message="tns:GetNextPlayerIDForLive1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNextPlayerIDForLive">
+      <wsdl:input message="tns:GetNextPlayerIDForLiveSoapIn" />
+      <wsdl:output message="tns:GetNextPlayerIDForLiveSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BetSoap" type="tns:BetSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDaMangChips">
+      <soap:operation soapAction="http://tempuri.org/GetDaMangChips" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDaMangPlayerID">
+      <soap:operation soapAction="http://tempuri.org/GetDaMangPlayerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXiaoMangPlayerID">
+      <soap:operation soapAction="http://tempuri.org/GetXiaoMangPlayerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewBet">
+      <soap:operation soapAction="http://tempuri.org/NewBet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UndoPreOperation">
+      <soap:operation soapAction="http://tempuri.org/UndoPreOperation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBetForLive">
+      <soap:operation soapAction="http://tempuri.org/GetBetForLive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBetForLive1">
+      <soap:operation soapAction="http://tempuri.org/GetBetForLive1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBetByRecordID">
+      <soap:operation soapAction="http://tempuri.org/GetBetByRecordID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBetInUnfinishedRecord">
+      <soap:operation soapAction="http://tempuri.org/GetAllBetInUnfinishedRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextPlayerIDForLive1">
+      <soap:operation soapAction="http://tempuri.org/GetNextPlayerIDForLive1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextPlayerIDForLive">
+      <soap:operation soapAction="http://tempuri.org/GetNextPlayerIDForLive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BetSoap12" type="tns:BetSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDaMangChips">
+      <soap12:operation soapAction="http://tempuri.org/GetDaMangChips" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDaMangPlayerID">
+      <soap12:operation soapAction="http://tempuri.org/GetDaMangPlayerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXiaoMangPlayerID">
+      <soap12:operation soapAction="http://tempuri.org/GetXiaoMangPlayerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewBet">
+      <soap12:operation soapAction="http://tempuri.org/NewBet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UndoPreOperation">
+      <soap12:operation soapAction="http://tempuri.org/UndoPreOperation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBetForLive">
+      <soap12:operation soapAction="http://tempuri.org/GetBetForLive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBetForLive1">
+      <soap12:operation soapAction="http://tempuri.org/GetBetForLive1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBetByRecordID">
+      <soap12:operation soapAction="http://tempuri.org/GetBetByRecordID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBetInUnfinishedRecord">
+      <soap12:operation soapAction="http://tempuri.org/GetAllBetInUnfinishedRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextPlayerIDForLive1">
+      <soap12:operation soapAction="http://tempuri.org/GetNextPlayerIDForLive1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextPlayerIDForLive">
+      <soap12:operation soapAction="http://tempuri.org/GetNextPlayerIDForLive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Bet">
+    <wsdl:port name="BetSoap" binding="tns:BetSoap">
+      <soap:address location="http://localhost:2986/Api/Bet.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BetSoap12" binding="tns:BetSoap12">
+      <soap12:address location="http://localhost:2986/Api/Bet.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

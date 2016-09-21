@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="TexasWpfApplication.Pages.UserControlSelectOld"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="49" Width="886">
+    <Grid>
+        <Label x:Name="time" Content="2014/05/10 14:05:59" FontSize="21.333" HorizontalAlignment="Left" Margin="24,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="playerNumber" Content="6人" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="405,10,0,0" Background="Transparent" FontSize="21.333"/>
+        <Label x:Name="MingPai" Content="明牌讲解" FontSize="14" Foreground="#FF15739B" HorizontalAlignment="Left" Margin="517,13,0,0" VerticalAlignment="Top" MouseLeftButtonUp="Label_MouseLeftButtonUp" Cursor="Hand"/>
+        <Label x:Name="Shijiao" Content="视角讲解" FontSize="14" Foreground="#FF15739B" HorizontalAlignment="Left" Margin="670,12,0,0" VerticalAlignment="Top" MouseLeftButtonUp="Label_MouseLeftButtonUp_1" Cursor="Hand"/>
+        <ComboBox x:Name="playerID" HorizontalAlignment="Left" Margin="598,15,0,0" VerticalAlignment="Top" Width="60"/>
+        <Label x:Name="recordID" Content="" HorizontalAlignment="Left" Margin="328,18,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label x:Name="ShanChu" Content="删除" HorizontalAlignment="Left" Margin="807,11,0,0" VerticalAlignment="Top" Foreground="#FF15739B" FontSize="14" Cursor="Hand" MouseLeftButtonUp="ShanChu_MouseLeftButtonUp" Width="79"/>
+        <Label x:Name="jixvluzhi" Content="继续录制" FontSize="14" Foreground="#FF15739B" HorizontalAlignment="Left" Margin="736,12,0,0" VerticalAlignment="Top" Cursor="Hand" MouseRightButtonUp="jixvluzhi_MouseRightButtonUp" MouseLeftButtonUp="jixvluzhi_MouseLeftButtonUp"/>
+
+
+
+    </Grid>
+</UserControl>

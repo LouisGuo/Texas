@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using ConsoleApplication1.Texas;
+using System.Data.SqlClient;
 
 namespace UnitTestProject1
 {
@@ -23,8 +24,8 @@ namespace UnitTestProject1
             };
             CardsType ct = new CardsType();
             double weight = CardUtil.GetWeight(cardList, out ct);
-            Assert.AreEqual(ct,CardsType.SiTiao);
-            Assert.AreEqual(weight,8.0202020207);
+            Assert.AreEqual(ct, CardsType.SiTiao);
+            Assert.AreEqual(weight, 8.0202020207);
         }
 
         [TestMethod]
@@ -160,5 +161,12 @@ namespace UnitTestProject1
             Assert.AreEqual(weight, 1.1211070604);
         }
 
+        [TestMethod]
+        public void TrigerTest()
+        {
+            using (SqlConnection conn = new SqlConnection(""))
+            {
+            }
+        }
     }
 }

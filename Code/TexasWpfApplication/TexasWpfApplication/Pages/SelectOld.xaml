@@ -1,0 +1,27 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Test="clr-namespace:TexasWpfApplication.Test" xmlns:local="clr-namespace:TexasWpfApplication.Pages" x:Class="TexasWpfApplication.Pages.SelectOld"
+        Title="SelectOld" Height="768" Width="1024" WindowStyle="None" ResizeMode="NoResize" Left="0" Top="0">
+    <Grid>
+        <Image Source="/Resources/Select_Old.gif" Stretch="Fill"/>
+        <Image x:Name="imagePre" Margin="46.5,690,929.5,30" Source="/Resources/Pre_Step.png" Stretch="Fill" MouseEnter="imagePre_MouseEnter" MouseLeave="imagePre_MouseLeave" MouseLeftButtonUp="imagePre_MouseLeftButtonUp" Cursor="Hand"/>
+        <Image x:Name="imageClose" Margin="114,690,862,30" Source="/Resources/Quit.png" Stretch="Fill" MouseEnter="imageClose_MouseEnter" MouseLeave="imageClose_MouseLeave" MouseLeftButtonUp="imageClose_MouseLeftButtonUp" Cursor="Hand"/>
+        <local:UserControlSelectOld x:Name="recordItem1" HorizontalAlignment="Left" Margin="59,267,0,0" VerticalAlignment="Top"/>
+        <local:UserControlSelectOld x:Name="recordItem2" HorizontalAlignment="Left" Margin="59,321,0,0" VerticalAlignment="Top"/>
+        <local:UserControlSelectOld x:Name="recordItem3" HorizontalAlignment="Left" Margin="59,375,0,0" VerticalAlignment="Top"/>
+        <local:UserControlSelectOld x:Name="recordItem4" HorizontalAlignment="Left" Margin="59,429,0,0" VerticalAlignment="Top" Width="886"/>
+        <local:UserControlSelectOld x:Name="recordItem5" HorizontalAlignment="Left" Margin="59,483,0,0" VerticalAlignment="Top"/>
+        <local:UserControlSelectOld x:Name="recordItem6" HorizontalAlignment="Left" Margin="59,537,0,0" VerticalAlignment="Top"/>
+        <local:UserControlSelectOld x:Name="recordItem7" HorizontalAlignment="Left" Margin="59,591,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="PageStart" Content="第一页" FontSize="20" Foreground="#FF15739B" HorizontalAlignment="Left" Margin="227,661,0,0" VerticalAlignment="Top" MouseLeftButtonUp="Label_MouseLeftButtonUp" Cursor="Hand"/>
+        <Label x:Name="PagePre" Content="上一页" FontSize="20" Foreground="#FF15739B" HorizontalAlignment="Left" Margin="297,661,0,0" VerticalAlignment="Top" MouseLeftButtonUp="Label_MouseLeftButtonUp_2" Cursor="Hand"/>
+        <Label x:Name="PageNext" Content="下一页" FontSize="20" Foreground="#FF15739B" HorizontalAlignment="Left" Margin="495,661,0,0" VerticalAlignment="Top" MouseLeftButtonUp="Label_MouseLeftButtonUp_3" Cursor="Hand"/>
+        <Label x:Name="PageEnd" Content="最末页" FontSize="20" Foreground="#FF15739B" HorizontalAlignment="Left" Margin="570,661,0,0" VerticalAlignment="Top" MouseLeftButtonUp="Label_MouseLeftButtonUp_1" Cursor="Hand"/>
+        <Label Name="Page1" Content="1" FontSize="20" Foreground="#FF15739B" HorizontalAlignment="Left" Margin="376,661,0,0" VerticalAlignment="Top" Cursor="Hand" MouseLeftButtonUp="Page1_MouseLeftButtonUp"/>
+        <Label Name="Page2" Content="2" FontSize="20" Foreground="#FF15739B" HorizontalAlignment="Left" Margin="398,661,0,0" VerticalAlignment="Top" Cursor="Hand" MouseLeftButtonUp="Page2_MouseLeftButtonUp"/>
+        <Label Name="Page3" Content="3" FontSize="20" Foreground="#FF15739B" HorizontalAlignment="Left" Margin="420,661,0,0" VerticalAlignment="Top" Cursor="Hand" MouseLeftButtonUp="Page3_MouseLeftButtonUp"/>
+        <Label Name="Page4" Content="..." FontSize="20" Foreground="#FF15739B" HorizontalAlignment="Left" Margin="447,661,0,0" VerticalAlignment="Top"/>
+        <Label Name="Page5" Content="9" FontSize="20" Foreground="#FF15739B" HorizontalAlignment="Left" Margin="468,661,0,0" VerticalAlignment="Top" Cursor="Hand" MouseLeftButtonUp="Page5_MouseLeftButtonUp"/>
+    </Grid>
+</Window>

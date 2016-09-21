@@ -1,0 +1,320 @@
+﻿<Window x:Class="TexasWpfApplication.Pages.StartNew"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="StartNew" Height="768" Width="1024" Left="0" Top="0" WindowStyle="None" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="玩家人数" HorizontalAlignment="Left" Margin="276,192,0,0" VerticalAlignment="Top" FontSize="28"/>
+        <Label Content="初始筹码" HorizontalAlignment="Left" Margin="276,391,0,0" VerticalAlignment="Top" FontSize="28"/>
+        <Label Content="利息设定" HorizontalAlignment="Left" Margin="276,477,0,0" VerticalAlignment="Top" FontSize="28"/>
+        <ComboBox x:Name="ComboBoxPlayerNum" HorizontalAlignment="Left" Margin="470,184,0,0" FontSize="22"  VerticalAlignment="Top" Width="342" Height="54" VerticalContentAlignment="Center" SelectionChanged="ComboBoxPlayerNum_SelectionChanged">
+
+            <ComboBoxItem Content="二人" FontSize="22" Height="51"/>
+            <ComboBoxItem Content="三人" FontSize="22" Height="51"/>
+            <ComboBoxItem Content="四人" FontSize="22" Height="51"/>
+            <ComboBoxItem Content="五人" FontSize="22" Height="51"/>
+            <ComboBoxItem Content="六人" FontSize="22" Height="51"/>
+            <ComboBoxItem Content="七人" FontSize="22" Height="51"/>
+            <ComboBoxItem Content="八人" FontSize="22"  Height="51"/>
+        </ComboBox>
+        <TextBox  x:Name="TextBoxStartChips" HorizontalAlignment="Left" Height="51" Margin="470,386,0,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" Width="340" FontSize="22" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TextBoxFirstInterest" TextAlignment="Center" HorizontalAlignment="Left" Height="62" Margin="472,470,0,0" TextWrapping="Wrap" Text="10%" VerticalAlignment="Top" Width="62" FontSize="25" VerticalContentAlignment="Center"  />
+        <TextBox x:Name="TextBoxSecondInterest" TextAlignment="Center" HorizontalAlignment="Left" Height="62" Margin="544,470,0,0" TextWrapping="Wrap" Text="20%" VerticalAlignment="Top" Width="62" FontSize="25" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TextBoxThirdInterest" TextAlignment="Center" HorizontalAlignment="Left" Height="62" Margin="612,470,0,0" TextWrapping="Wrap" Text="30%" VerticalAlignment="Top" Width="62" FontSize="25" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TextBoxFourthInterest" TextAlignment="Center" HorizontalAlignment="Left" Height="62" Margin="681,470,0,0" TextWrapping="Wrap" Text="40%" VerticalAlignment="Top" Width="62" FontSize="25" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TextBoxFifthInterest" TextAlignment="Center" HorizontalAlignment="Left" Height="62" Margin="750,470,0,0" TextWrapping="Wrap" Text="50%" VerticalAlignment="Top" Width="62" FontSize="25" VerticalContentAlignment="Center"/>
+        <Image x:Name="imageLogin" Margin="431,601,432,99" Source="/Resources/Button_Login.png" Stretch="Fill"  Panel.ZIndex="2" MouseLeftButtonUp="Image_MouseLeftButtonUp" MouseEnter="imageLogin_MouseEnter" MouseLeave="imageLogin_MouseLeave" Cursor="Hand"/>
+        <Label Content="开始录制" HorizontalAlignment="Left" Margin="451,612,0,0" VerticalAlignment="Top" FontSize="28" Foreground="White"  Panel.ZIndex="3" MouseLeftButtonUp="Image_MouseLeftButtonUp"  MouseEnter="imageLogin_MouseEnter" MouseLeave="imageLogin_MouseLeave" Cursor="Hand"/>
+        <Image Source="/Resources/Admin_Back.png" Stretch="Fill" Panel.ZIndex="-1"/>
+        <Image x:Name="imageClose" Margin="112.5,691.5,863.5,28.5" Source="/Resources/Quit.png" Stretch="Fill" MouseEnter="imageClose_MouseEnter" MouseLeave="imageClose_MouseLeave" MouseLeftButtonUp="imageClose_MouseLeftButtonUp" Cursor="Hand"/>
+        <Image x:Name="imagePre" Margin="42,691.5,934,28.5" Source="/Resources/Pre_Step.png" Stretch="Fill" MouseEnter="imagePre_MouseEnter" MouseLeave="imagePre_MouseLeave" MouseLeftButtonUp="imagePre_MouseLeftButtonUp" Cursor="Hand"/>
+        <ComboBox x:Name="ComboBoxHeadPicture1" HorizontalAlignment="Left" Margin="276,258,0,0" VerticalAlignment="Top" Width="78" Height="48" Panel.ZIndex="2" FontSize="36" Visibility="Hidden">
+
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Bear.png" Stretch="Fill"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Beauty.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Cat.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Dog.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Eagle.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Fox.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Horse.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Leopard.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Lion.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Panda.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Tiger.png"/>
+            </ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="ComboBoxHeadPicture2" HorizontalAlignment="Left" Margin="431,258,0,0" VerticalAlignment="Top" Width="78" Height="48" Panel.ZIndex="2" FontSize="36" Visibility="Hidden">
+
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Bear.png" Stretch="Fill"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Beauty.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Cat.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Dog.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Eagle.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Fox.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Horse.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Leopard.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Lion.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Panda.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Tiger.png"/>
+            </ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="ComboBoxHeadPicture3" HorizontalAlignment="Left" Margin="591,258,0,0" VerticalAlignment="Top" Width="78" Height="48" Panel.ZIndex="2" FontSize="36" Visibility="Hidden">
+
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Bear.png" Stretch="Fill"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Beauty.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Cat.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Dog.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Eagle.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Fox.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Horse.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Leopard.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Lion.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Panda.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Tiger.png"/>
+            </ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="ComboBoxHeadPicture4" HorizontalAlignment="Left" Margin="732,258,0,0" VerticalAlignment="Top" Width="78" Height="48" Panel.ZIndex="2" FontSize="36" Visibility="Hidden">
+
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Bear.png" Stretch="Fill"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Beauty.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Cat.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Dog.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Eagle.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Fox.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Horse.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Leopard.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Lion.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Panda.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Tiger.png"/>
+            </ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="ComboBoxHeadPicture5" HorizontalAlignment="Left" Margin="276,320,0,0" VerticalAlignment="Top" Width="78" Height="48" Panel.ZIndex="2" FontSize="36" Visibility="Hidden">
+
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Bear.png" Stretch="Fill"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Beauty.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Cat.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Dog.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Eagle.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Fox.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Horse.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Leopard.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Lion.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Panda.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Tiger.png"/>
+            </ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="ComboBoxHeadPicture6" HorizontalAlignment="Left" Margin="431,320,0,0" VerticalAlignment="Top" Width="78" Height="48" Panel.ZIndex="2" FontSize="36" Visibility="Hidden">
+
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Bear.png" Stretch="Fill"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Beauty.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Cat.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Dog.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Eagle.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Fox.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Horse.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Leopard.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Lion.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Panda.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Tiger.png"/>
+            </ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="ComboBoxHeadPicture7" HorizontalAlignment="Left" Margin="591,320,0,0" VerticalAlignment="Top" Width="78" Height="48" Panel.ZIndex="2" FontSize="36" Visibility="Hidden">
+
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Bear.png" Stretch="Fill"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Beauty.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Cat.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Dog.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Eagle.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Fox.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Horse.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Leopard.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Lion.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Panda.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Tiger.png"/>
+            </ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="ComboBoxHeadPicture8" HorizontalAlignment="Left" Margin="732,320,0,0" VerticalAlignment="Top" Width="78" Height="48" Panel.ZIndex="2" FontSize="36" Visibility="Hidden">
+
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Bear.png" Stretch="Fill"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Beauty.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Cat.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Dog.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Eagle.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Fox.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Horse.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Leopard.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Lion.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Panda.png"/>
+            </ComboBoxItem>
+            <ComboBoxItem Height="48" Width="48">
+                <Image Source="/Resources/Head/Tiger.png"/>
+            </ComboBoxItem>
+        </ComboBox>
+
+    </Grid>
+</Window>

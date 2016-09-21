@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewLoan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loanchips1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="loanchips2" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="loanchips3" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="loanchips4" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="loanchips5" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="loanchips6" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="loanchips7" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="loanchips8" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewLoanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewLoanResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JudgeWinner">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="gainchips1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="gainchips2" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="gainchips3" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="gainchips4" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="gainchips5" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="gainchips6" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="gainchips7" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="gainchips8" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JudgeWinnerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="JudgeWinnerResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStartChipsForJudgeShow">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetStartChipsForJudgeShowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStartChipsForJudgeShowResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStartChipsByGameID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="gameID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStartChipsByGameIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStartChipsByGameIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLastGameResultForLive">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLastGameResultForLiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLastGameResultForLiveResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGameResultByGameID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="gameID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGameResultByGameIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGameResultByGameIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerChipsByRecordID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="recordID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerChipsByRecordIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlayerChipsByRecordIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetHeadPicture">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="playerID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="headPicture" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetHeadPictureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetHeadPictureResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerChipsInPoolForLive">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chipsBet" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerChipsInPoolForLiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlayerChipsInPoolForLiveResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChipsInPoolForLive">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chipsBet" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChipsInPoolForLiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChipsInPoolForLiveResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChipsInPoolByGameID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="gameID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="chipsBet" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChipsInPoolByGameIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChipsInPoolByGameIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaxBetChipsForLive">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMaxBetChipsForLiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMaxBetChipsForLiveResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTurnsBetChipsForNextPlayer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="playerID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTurnsBetChipsForNextPlayerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTurnsBetChipsForNextPlayerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTurnsLeftBetChipsForNextPlayer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="playerID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTurnsLeftBetChipsForNextPlayerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTurnsLeftBetChipsForNextPlayerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewLoanSoapIn">
+    <wsdl:part name="parameters" element="tns:NewLoan" />
+  </wsdl:message>
+  <wsdl:message name="NewLoanSoapOut">
+    <wsdl:part name="parameters" element="tns:NewLoanResponse" />
+  </wsdl:message>
+  <wsdl:message name="JudgeWinnerSoapIn">
+    <wsdl:part name="parameters" element="tns:JudgeWinner" />
+  </wsdl:message>
+  <wsdl:message name="JudgeWinnerSoapOut">
+    <wsdl:part name="parameters" element="tns:JudgeWinnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStartChipsForJudgeShowSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStartChipsForJudgeShow" />
+  </wsdl:message>
+  <wsdl:message name="GetStartChipsForJudgeShowSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStartChipsForJudgeShowResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStartChipsByGameIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStartChipsByGameID" />
+  </wsdl:message>
+  <wsdl:message name="GetStartChipsByGameIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStartChipsByGameIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLastGameResultForLiveSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLastGameResultForLive" />
+  </wsdl:message>
+  <wsdl:message name="GetLastGameResultForLiveSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLastGameResultForLiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGameResultByGameIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGameResultByGameID" />
+  </wsdl:message>
+  <wsdl:message name="GetGameResultByGameIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGameResultByGameIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerChipsByRecordIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlayerChipsByRecordID" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerChipsByRecordIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlayerChipsByRecordIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetHeadPictureSoapIn">
+    <wsdl:part name="parameters" element="tns:SetHeadPicture" />
+  </wsdl:message>
+  <wsdl:message name="SetHeadPictureSoapOut">
+    <wsdl:part name="parameters" element="tns:SetHeadPictureResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerChipsInPoolForLiveSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlayerChipsInPoolForLive" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerChipsInPoolForLiveSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlayerChipsInPoolForLiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChipsInPoolForLiveSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChipsInPoolForLive" />
+  </wsdl:message>
+  <wsdl:message name="GetChipsInPoolForLiveSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChipsInPoolForLiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChipsInPoolByGameIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChipsInPoolByGameID" />
+  </wsdl:message>
+  <wsdl:message name="GetChipsInPoolByGameIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChipsInPoolByGameIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaxBetChipsForLiveSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaxBetChipsForLive" />
+  </wsdl:message>
+  <wsdl:message name="GetMaxBetChipsForLiveSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaxBetChipsForLiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTurnsBetChipsForNextPlayerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTurnsBetChipsForNextPlayer" />
+  </wsdl:message>
+  <wsdl:message name="GetTurnsBetChipsForNextPlayerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTurnsBetChipsForNextPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTurnsLeftBetChipsForNextPlayerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTurnsLeftBetChipsForNextPlayer" />
+  </wsdl:message>
+  <wsdl:message name="GetTurnsLeftBetChipsForNextPlayerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTurnsLeftBetChipsForNextPlayerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PlayerChipSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewLoan">
+      <wsdl:input message="tns:NewLoanSoapIn" />
+      <wsdl:output message="tns:NewLoanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JudgeWinner">
+      <wsdl:input message="tns:JudgeWinnerSoapIn" />
+      <wsdl:output message="tns:JudgeWinnerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStartChipsForJudgeShow">
+      <wsdl:input message="tns:GetStartChipsForJudgeShowSoapIn" />
+      <wsdl:output message="tns:GetStartChipsForJudgeShowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStartChipsByGameID">
+      <wsdl:input message="tns:GetStartChipsByGameIDSoapIn" />
+      <wsdl:output message="tns:GetStartChipsByGameIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastGameResultForLive">
+      <wsdl:input message="tns:GetLastGameResultForLiveSoapIn" />
+      <wsdl:output message="tns:GetLastGameResultForLiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameResultByGameID">
+      <wsdl:input message="tns:GetGameResultByGameIDSoapIn" />
+      <wsdl:output message="tns:GetGameResultByGameIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerChipsByRecordID">
+      <wsdl:input message="tns:GetPlayerChipsByRecordIDSoapIn" />
+      <wsdl:output message="tns:GetPlayerChipsByRecordIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetHeadPicture">
+      <wsdl:input message="tns:SetHeadPictureSoapIn" />
+      <wsdl:output message="tns:SetHeadPictureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerChipsInPoolForLive">
+      <wsdl:input message="tns:GetPlayerChipsInPoolForLiveSoapIn" />
+      <wsdl:output message="tns:GetPlayerChipsInPoolForLiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChipsInPoolForLive">
+      <wsdl:input message="tns:GetChipsInPoolForLiveSoapIn" />
+      <wsdl:output message="tns:GetChipsInPoolForLiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChipsInPoolByGameID">
+      <wsdl:input message="tns:GetChipsInPoolByGameIDSoapIn" />
+      <wsdl:output message="tns:GetChipsInPoolByGameIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxBetChipsForLive">
+      <wsdl:input message="tns:GetMaxBetChipsForLiveSoapIn" />
+      <wsdl:output message="tns:GetMaxBetChipsForLiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTurnsBetChipsForNextPlayer">
+      <wsdl:input message="tns:GetTurnsBetChipsForNextPlayerSoapIn" />
+      <wsdl:output message="tns:GetTurnsBetChipsForNextPlayerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTurnsLeftBetChipsForNextPlayer">
+      <wsdl:input message="tns:GetTurnsLeftBetChipsForNextPlayerSoapIn" />
+      <wsdl:output message="tns:GetTurnsLeftBetChipsForNextPlayerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PlayerChipSoap" type="tns:PlayerChipSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewLoan">
+      <soap:operation soapAction="http://tempuri.org/NewLoan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JudgeWinner">
+      <soap:operation soapAction="http://tempuri.org/JudgeWinner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStartChipsForJudgeShow">
+      <soap:operation soapAction="http://tempuri.org/GetStartChipsForJudgeShow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStartChipsByGameID">
+      <soap:operation soapAction="http://tempuri.org/GetStartChipsByGameID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastGameResultForLive">
+      <soap:operation soapAction="http://tempuri.org/GetLastGameResultForLive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameResultByGameID">
+      <soap:operation soapAction="http://tempuri.org/GetGameResultByGameID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerChipsByRecordID">
+      <soap:operation soapAction="http://tempuri.org/GetPlayerChipsByRecordID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetHeadPicture">
+      <soap:operation soapAction="http://tempuri.org/SetHeadPicture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerChipsInPoolForLive">
+      <soap:operation soapAction="http://tempuri.org/GetPlayerChipsInPoolForLive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChipsInPoolForLive">
+      <soap:operation soapAction="http://tempuri.org/GetChipsInPoolForLive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChipsInPoolByGameID">
+      <soap:operation soapAction="http://tempuri.org/GetChipsInPoolByGameID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxBetChipsForLive">
+      <soap:operation soapAction="http://tempuri.org/GetMaxBetChipsForLive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTurnsBetChipsForNextPlayer">
+      <soap:operation soapAction="http://tempuri.org/GetTurnsBetChipsForNextPlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTurnsLeftBetChipsForNextPlayer">
+      <soap:operation soapAction="http://tempuri.org/GetTurnsLeftBetChipsForNextPlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PlayerChipSoap12" type="tns:PlayerChipSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewLoan">
+      <soap12:operation soapAction="http://tempuri.org/NewLoan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JudgeWinner">
+      <soap12:operation soapAction="http://tempuri.org/JudgeWinner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStartChipsForJudgeShow">
+      <soap12:operation soapAction="http://tempuri.org/GetStartChipsForJudgeShow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStartChipsByGameID">
+      <soap12:operation soapAction="http://tempuri.org/GetStartChipsByGameID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastGameResultForLive">
+      <soap12:operation soapAction="http://tempuri.org/GetLastGameResultForLive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameResultByGameID">
+      <soap12:operation soapAction="http://tempuri.org/GetGameResultByGameID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerChipsByRecordID">
+      <soap12:operation soapAction="http://tempuri.org/GetPlayerChipsByRecordID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetHeadPicture">
+      <soap12:operation soapAction="http://tempuri.org/SetHeadPicture" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerChipsInPoolForLive">
+      <soap12:operation soapAction="http://tempuri.org/GetPlayerChipsInPoolForLive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChipsInPoolForLive">
+      <soap12:operation soapAction="http://tempuri.org/GetChipsInPoolForLive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChipsInPoolByGameID">
+      <soap12:operation soapAction="http://tempuri.org/GetChipsInPoolByGameID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxBetChipsForLive">
+      <soap12:operation soapAction="http://tempuri.org/GetMaxBetChipsForLive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTurnsBetChipsForNextPlayer">
+      <soap12:operation soapAction="http://tempuri.org/GetTurnsBetChipsForNextPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTurnsLeftBetChipsForNextPlayer">
+      <soap12:operation soapAction="http://tempuri.org/GetTurnsLeftBetChipsForNextPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PlayerChip">
+    <wsdl:port name="PlayerChipSoap" binding="tns:PlayerChipSoap">
+      <soap:address location="http://localhost:2986/Api/PlayerChip.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PlayerChipSoap12" binding="tns:PlayerChipSoap12">
+      <soap12:address location="http://localhost:2986/Api/PlayerChip.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

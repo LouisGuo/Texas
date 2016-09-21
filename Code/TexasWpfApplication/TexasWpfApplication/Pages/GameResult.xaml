@@ -1,0 +1,72 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:TexasWpfApplication.Pages" x:Class="TexasWpfApplication.Pages.GameResult"
+        Title="GameResult" Height="768" Width="1024" WindowStyle="None" ResizeMode="NoResize" Left="0" Top="0" Background="#FF313131" Opacity="0.9" AllowsTransparency="True">
+    <Grid>
+        <Label Content="战况速报" HorizontalAlignment="Left" Margin="377,38,0,0" FontSize="53.333" Foreground="White" VerticalAlignment="Top"/>
+        <Grid Loaded="Grid_Loaded">
+            <Image Margin="118.5,115.233,119.5,64.767" Source="/Resources/b.png" Stretch="Fill"/>
+            <ScrollViewer VerticalScrollBarVisibility="Hidden" Margin="118.5,115.233,119.5,64.767">
+
+                <Grid x:Name="gridEnd" Height="auto" Width="776" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <!--<RowDefinition Height="72"/>
+                        <RowDefinition Height="72"/>
+                        <RowDefinition Height="72"/>
+                        <RowDefinition Height="72"/>
+                        <RowDefinition Height="72"/>-->
+                    </Grid.RowDefinitions>
+                    <Label Content="玩家：" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Margin="1,18,0,0" Foreground="Black"/>
+                    <Image Name="Picture1" HorizontalAlignment="Left" Source="/Resources/Head/default.png" Height="48" Margin="100,10,0,0" VerticalAlignment="Top" Width="48" Grid.Row="0" Visibility="Hidden"/>
+                    <Image Name="Picture2" HorizontalAlignment="Left" Source="/Resources/Head/default.png" Height="48" Margin="182,10,0,0" VerticalAlignment="Top" Width="48" Grid.Row="0" Visibility="Hidden"/>
+                    <Image Name="Picture3" HorizontalAlignment="Left" Source="/Resources/Head/default.png" Height="48" Margin="265,10,0,0" VerticalAlignment="Top" Width="48" Grid.Row="0" Visibility="Hidden"/>
+                    <Image Name="Picture4" HorizontalAlignment="Left" Source="/Resources/Head/default.png" Height="48" Margin="351,10,0,0" VerticalAlignment="Top" Width="48" Grid.Row="0" Visibility="Hidden"/>
+                    <Image Name="Picture5" HorizontalAlignment="Left" Source="/Resources/Head/default.png" Height="48" Margin="432,10,0,0" VerticalAlignment="Top" Width="48" Grid.Row="0" Visibility="Hidden"/>
+                    <Image Name="Picture6" HorizontalAlignment="Left" Source="/Resources/Head/default.png" Height="48" Margin="512,10,0,0" VerticalAlignment="Top" Width="48" Grid.Row="0" Visibility="Hidden"/>
+                    <Image Name="Picture7" HorizontalAlignment="Left" Source="/Resources/Head/default.png" Height="48" Margin="590,10,0,0" VerticalAlignment="Top" Width="48" Grid.Row="0" Visibility="Hidden"/>
+                    <Image Name="Picture8" HorizontalAlignment="Left" Source="/Resources/Head/default.png" Height="48" Margin="673,10,0,0" VerticalAlignment="Top" Width="48" Grid.Row="0" Visibility="Hidden"/>
+
+
+                    <Image Source="/Resources/line.png" Stretch="Fill" Height="2" Grid.Row="0" Margin="0,96,0,3"/>
+                    <Label Name="LabelName1" Content="玩家1" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Top" Margin="100,63,0,0" Visibility="Hidden"/>
+                    <Label Name="LabelName2" Content="玩家2" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Top" Margin="182,63,0,0" Visibility="Hidden"/>
+                    <Label Name="LabelName3" Content="玩家3" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Top" Margin="265,63,0,0" Visibility="Hidden"/>
+                    <Label Name="LabelName4" Content="玩家4" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Top" Margin="351,63,0,0" Visibility="Hidden"/>
+                    <Label Name="LabelName5" Content="玩家5" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Top" Margin="432,63,0,0" Visibility="Hidden"/>
+                    <Label Name="LabelName6" Content="玩家6" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Top" Margin="512,63,0,0" Visibility="Hidden"/>
+                    <Label Name="LabelName7" Content="玩家7" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Top" Margin="590,63,0,0" Visibility="Hidden"/>
+                    <Label Name="LabelName8" Content="玩家8" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Top" Margin="673,63,0,0" Visibility="Hidden"/>
+
+
+                    <!--<local:UserControlGameResult HorizontalAlignment="Left" Height="72" Margin="10,100,0,-99" VerticalAlignment="Top"/>-->
+
+
+
+
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+
+        <Grid x:Name="grid1" Visibility="Hidden">
+            <Image Margin="118.5,115.233,119.5,64.767" Source="/Resources/b.png" Stretch="Fill"/>
+            <Image Margin="136.5,193.5,135.5,572.5" Source="/Resources/line.png" Stretch="Fill"/>
+            <Image Margin="136.5,258,135.5,508" Source="/Resources/line.png" Stretch="Fill"/>
+            <Image Margin="136.5,321,135.5,445" Source="/Resources/line.png" Stretch="Fill"/>
+            <Image Margin="136.5,391.5,135.5,374.5" Source="/Resources/line.png" Stretch="Fill"/>
+            <Image Margin="136.5,457.5,135.5,308.5" Source="/Resources/line.png" Stretch="Fill"/>
+            <Image Margin="136.5,526.5,135.5,239.5" Source="/Resources/line.png" Stretch="Fill"/>
+            <Image Margin="136.5,598.5,135.5,167.5" Source="/Resources/line.png" Stretch="Fill"/>
+            <Image Margin="136,664,136,102" Source="/Resources/line.png" Stretch="Fill"/>
+        </Grid>
+        <Label Content="利率" HorizontalAlignment="Left" Margin="909.5,115.233,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White" Visibility="Hidden"/>
+        <Label Name="InterestLabel1" Content="10%" HorizontalAlignment="Left" Margin="909.5,158.406,0,0" VerticalAlignment="Top" FontSize="21.333" Foreground="White" Visibility="Hidden"/>
+        <Label Name="InterestLabel2" Content="20%" HorizontalAlignment="Left" Margin="913.5,200.499,0,0" VerticalAlignment="Top" FontSize="21.333" Foreground="White" Visibility="Hidden"/>
+        <Label Name="InterestLabel3" Content="30%" HorizontalAlignment="Left" Margin="913.5,242.592,0,0" VerticalAlignment="Top" FontSize="21.333" Foreground="White" Visibility="Hidden"/>
+        <Label Name="InterestLabel4" Content="40%" HorizontalAlignment="Left" Margin="913.5,284.685,0,0" VerticalAlignment="Top" FontSize="21.333" Foreground="White" Visibility="Hidden"/>
+        <Label Name="InterestLabel5" Content="50%" HorizontalAlignment="Left" Margin="913.5,321,0,0" VerticalAlignment="Top" FontSize="21.333" Foreground="White" Visibility="Hidden"/>
+        <Image x:Name="imageclose" Margin="909.5,37.5,66.5,682.5" Source="/Resources/Close.png" Stretch="Fill" Cursor="Hand" MouseLeftButtonUp="imageclose_MouseLeftButtonUp" MouseEnter="imageclose_MouseEnter" MouseLeave="imageclose_MouseLeave"/>
+
+    </Grid>
+</Window>

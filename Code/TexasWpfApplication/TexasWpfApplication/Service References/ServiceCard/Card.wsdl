@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DealFirstTwoPublicCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="firstCard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="secondCard" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DealFirstTwoPublicCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DealFirstTwoPublicCardResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DealFirstThreePublicCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="firstCard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="secondCard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="thirdCard" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DealFirstThreePublicCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DealFirstThreePublicCardResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DealFourthPublicCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fourthCard" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DealFourthPublicCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DealFourthPublicCardResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DealFifthPublicCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fifthCard" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DealFifthPublicCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DealFifthPublicCardResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DealPrivateCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="playerID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstCard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="secondCard" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DealPrivateCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DealPrivateCardResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPublicCardForLive">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPublicCardForLiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPublicCardForLiveResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrivateCardForLive">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPrivateCardForLiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrivateCardForLiveResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrivateCardByPlayerID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="playerID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrivateCardByPlayerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrivateCardByPlayerIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrivateCardByGameID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="gameID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrivateCardByGameIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrivateCardByGameIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPublicCardsByGameID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="gameID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPublicCardsByGameIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPublicCardsByGameIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataUploadAPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="card" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataUploadAPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DataUploadAPIResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataUndoAPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataUndoAPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DataUndoAPIResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="DealFirstTwoPublicCardSoapIn">
+    <wsdl:part name="parameters" element="tns:DealFirstTwoPublicCard" />
+  </wsdl:message>
+  <wsdl:message name="DealFirstTwoPublicCardSoapOut">
+    <wsdl:part name="parameters" element="tns:DealFirstTwoPublicCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="DealFirstThreePublicCardSoapIn">
+    <wsdl:part name="parameters" element="tns:DealFirstThreePublicCard" />
+  </wsdl:message>
+  <wsdl:message name="DealFirstThreePublicCardSoapOut">
+    <wsdl:part name="parameters" element="tns:DealFirstThreePublicCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="DealFourthPublicCardSoapIn">
+    <wsdl:part name="parameters" element="tns:DealFourthPublicCard" />
+  </wsdl:message>
+  <wsdl:message name="DealFourthPublicCardSoapOut">
+    <wsdl:part name="parameters" element="tns:DealFourthPublicCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="DealFifthPublicCardSoapIn">
+    <wsdl:part name="parameters" element="tns:DealFifthPublicCard" />
+  </wsdl:message>
+  <wsdl:message name="DealFifthPublicCardSoapOut">
+    <wsdl:part name="parameters" element="tns:DealFifthPublicCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="DealPrivateCardSoapIn">
+    <wsdl:part name="parameters" element="tns:DealPrivateCard" />
+  </wsdl:message>
+  <wsdl:message name="DealPrivateCardSoapOut">
+    <wsdl:part name="parameters" element="tns:DealPrivateCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPublicCardForLiveSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPublicCardForLive" />
+  </wsdl:message>
+  <wsdl:message name="GetPublicCardForLiveSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPublicCardForLiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrivateCardForLiveSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrivateCardForLive" />
+  </wsdl:message>
+  <wsdl:message name="GetPrivateCardForLiveSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrivateCardForLiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrivateCardByPlayerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrivateCardByPlayerID" />
+  </wsdl:message>
+  <wsdl:message name="GetPrivateCardByPlayerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrivateCardByPlayerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrivateCardByGameIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrivateCardByGameID" />
+  </wsdl:message>
+  <wsdl:message name="GetPrivateCardByGameIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrivateCardByGameIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPublicCardsByGameIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPublicCardsByGameID" />
+  </wsdl:message>
+  <wsdl:message name="GetPublicCardsByGameIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPublicCardsByGameIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataUploadAPISoapIn">
+    <wsdl:part name="parameters" element="tns:DataUploadAPI" />
+  </wsdl:message>
+  <wsdl:message name="DataUploadAPISoapOut">
+    <wsdl:part name="parameters" element="tns:DataUploadAPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataUndoAPISoapIn">
+    <wsdl:part name="parameters" element="tns:DataUndoAPI" />
+  </wsdl:message>
+  <wsdl:message name="DataUndoAPISoapOut">
+    <wsdl:part name="parameters" element="tns:DataUndoAPIResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CardSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DealFirstTwoPublicCard">
+      <wsdl:input message="tns:DealFirstTwoPublicCardSoapIn" />
+      <wsdl:output message="tns:DealFirstTwoPublicCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DealFirstThreePublicCard">
+      <wsdl:input message="tns:DealFirstThreePublicCardSoapIn" />
+      <wsdl:output message="tns:DealFirstThreePublicCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DealFourthPublicCard">
+      <wsdl:input message="tns:DealFourthPublicCardSoapIn" />
+      <wsdl:output message="tns:DealFourthPublicCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DealFifthPublicCard">
+      <wsdl:input message="tns:DealFifthPublicCardSoapIn" />
+      <wsdl:output message="tns:DealFifthPublicCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DealPrivateCard">
+      <wsdl:input message="tns:DealPrivateCardSoapIn" />
+      <wsdl:output message="tns:DealPrivateCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPublicCardForLive">
+      <wsdl:input message="tns:GetPublicCardForLiveSoapIn" />
+      <wsdl:output message="tns:GetPublicCardForLiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateCardForLive">
+      <wsdl:input message="tns:GetPrivateCardForLiveSoapIn" />
+      <wsdl:output message="tns:GetPrivateCardForLiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateCardByPlayerID">
+      <wsdl:input message="tns:GetPrivateCardByPlayerIDSoapIn" />
+      <wsdl:output message="tns:GetPrivateCardByPlayerIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateCardByGameID">
+      <wsdl:input message="tns:GetPrivateCardByGameIDSoapIn" />
+      <wsdl:output message="tns:GetPrivateCardByGameIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPublicCardsByGameID">
+      <wsdl:input message="tns:GetPublicCardsByGameIDSoapIn" />
+      <wsdl:output message="tns:GetPublicCardsByGameIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DataUploadAPI">
+      <wsdl:input message="tns:DataUploadAPISoapIn" />
+      <wsdl:output message="tns:DataUploadAPISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DataUndoAPI">
+      <wsdl:input message="tns:DataUndoAPISoapIn" />
+      <wsdl:output message="tns:DataUndoAPISoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CardSoap" type="tns:CardSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DealFirstTwoPublicCard">
+      <soap:operation soapAction="http://tempuri.org/DealFirstTwoPublicCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DealFirstThreePublicCard">
+      <soap:operation soapAction="http://tempuri.org/DealFirstThreePublicCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DealFourthPublicCard">
+      <soap:operation soapAction="http://tempuri.org/DealFourthPublicCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DealFifthPublicCard">
+      <soap:operation soapAction="http://tempuri.org/DealFifthPublicCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DealPrivateCard">
+      <soap:operation soapAction="http://tempuri.org/DealPrivateCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPublicCardForLive">
+      <soap:operation soapAction="http://tempuri.org/GetPublicCardForLive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateCardForLive">
+      <soap:operation soapAction="http://tempuri.org/GetPrivateCardForLive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateCardByPlayerID">
+      <soap:operation soapAction="http://tempuri.org/GetPrivateCardByPlayerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateCardByGameID">
+      <soap:operation soapAction="http://tempuri.org/GetPrivateCardByGameID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPublicCardsByGameID">
+      <soap:operation soapAction="http://tempuri.org/GetPublicCardsByGameID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DataUploadAPI">
+      <soap:operation soapAction="http://tempuri.org/DataUploadAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DataUndoAPI">
+      <soap:operation soapAction="http://tempuri.org/DataUndoAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CardSoap12" type="tns:CardSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DealFirstTwoPublicCard">
+      <soap12:operation soapAction="http://tempuri.org/DealFirstTwoPublicCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DealFirstThreePublicCard">
+      <soap12:operation soapAction="http://tempuri.org/DealFirstThreePublicCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DealFourthPublicCard">
+      <soap12:operation soapAction="http://tempuri.org/DealFourthPublicCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DealFifthPublicCard">
+      <soap12:operation soapAction="http://tempuri.org/DealFifthPublicCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DealPrivateCard">
+      <soap12:operation soapAction="http://tempuri.org/DealPrivateCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPublicCardForLive">
+      <soap12:operation soapAction="http://tempuri.org/GetPublicCardForLive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateCardForLive">
+      <soap12:operation soapAction="http://tempuri.org/GetPrivateCardForLive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateCardByPlayerID">
+      <soap12:operation soapAction="http://tempuri.org/GetPrivateCardByPlayerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateCardByGameID">
+      <soap12:operation soapAction="http://tempuri.org/GetPrivateCardByGameID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPublicCardsByGameID">
+      <soap12:operation soapAction="http://tempuri.org/GetPublicCardsByGameID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DataUploadAPI">
+      <soap12:operation soapAction="http://tempuri.org/DataUploadAPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DataUndoAPI">
+      <soap12:operation soapAction="http://tempuri.org/DataUndoAPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Card">
+    <wsdl:port name="CardSoap" binding="tns:CardSoap">
+      <soap:address location="http://localhost:2986/Api/Card.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CardSoap12" binding="tns:CardSoap12">
+      <soap12:address location="http://localhost:2986/Api/Card.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
