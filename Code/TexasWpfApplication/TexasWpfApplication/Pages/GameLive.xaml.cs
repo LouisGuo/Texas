@@ -25,15 +25,26 @@ namespace TexasWpfApplication.Pages
         private int playerNumber;
 
         //旁观玩家
-        private int playerID=0;
+        private int playerID = 0;
+
+        private List<Tuple<String, String>> allPrivateCards = new List<Tuple<string, string>>();
+        private List<String> allOperations = new List<string>();
 
         private MyService myService = new MyService();
+
+
+        private List<Label> operations = new List<Label>();
+
         public GameLive(int playerid)
         {
             InitializeComponent();
             playerID = playerid;
 
-
+            operations = new List<Label>()
+            {
+                Operation1,Operation2,Operation3,Operation4,
+                Operation5,Operation6,Operation7,Operation8,
+            };
             try
             {
                 string pyerID = myService.GetAdministrator().HelloWorld();
@@ -58,9 +69,25 @@ namespace TexasWpfApplication.Pages
                 return;
             }
 
+            BitmapImage privateUnrecord = new BitmapImage(new Uri("/Resources/Cards/BACK.png", UriKind.Relative));
+            var cardList = new List<Image>()
+            {
+                card11,card12,
+                card21,card22,
+                card31,card32,
+                card41,card42,
+                card51,card52,
+                card61,card62,
+                card71,card72,
+                card81,card82,
+            };
+            foreach (var cardImage in cardList)
+            {
+                cardImage.Source = privateUnrecord;
+            }
             ServiceCard.CardSoapClient privatecardservice = myService.GetCard();
             DataSet privateCardSet = privatecardservice.GetPrivateCardByPlayerID(playerID);
-            if(privateCardSet.Tables.Count!=0)
+            if (privateCardSet.Tables.Count != 0)
             {
                 DataTable tablePrivateCard = privateCardSet.Tables[0];
                 if (tablePrivateCard.Rows.Count != 0)
@@ -114,7 +141,6 @@ namespace TexasWpfApplication.Pages
                 }
                 else
                 {
-                    BitmapImage privateUnrecord = new BitmapImage(new Uri("/Resources/Cards/BACK.png", UriKind.Relative));
                     switch (playerID)
                     {
                         case 1:
@@ -152,7 +178,7 @@ namespace TexasWpfApplication.Pages
                     }
                 }
             }
-           
+
         }
 
         public void ShowPlayer()
@@ -273,7 +299,7 @@ namespace TexasWpfApplication.Pages
         private DispatcherTimer timer = new DispatcherTimer();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += theout;
             timer.Start();
@@ -282,11 +308,10 @@ namespace TexasWpfApplication.Pages
 
         public void theout(object source, EventArgs e)
         {
-
-            LoadDesktop();
             //从数据库读取privateCard，显示私牌 
             if (playerID != 0)
                 LoadPrivateCardForPangguan();
+            LoadDesktop();
             LoadHeadPicture();
 
             DeterminNextPlayer();
@@ -373,7 +398,7 @@ namespace TexasWpfApplication.Pages
                 //显示池底的筹码
                 string chipsInPool = myService.GetPlayerChip().GetChipsInPoolForLive(chipsBet);
                 string playerChipsInPool = myService.GetPlayerChip().GetPlayerChipsInPoolForLive(chipsBet);
-                
+
                 if (chipsInPool.Length != 0)
                 {
                     string[] eachChipsPlayer = playerChipsInPool.Split('&');
@@ -398,8 +423,8 @@ namespace TexasWpfApplication.Pages
                         this.chipsInPool.DetailChips1.Visibility = Visibility.Visible;
                         this.chipsInPool.DetailChipsNum1.Visibility = Visibility.Visible;
                         this.chipsInPool.DetailChipsPlayer1.Visibility = Visibility.Visible;
-                        this.chipsInPool.DetailChipsNum1.Text=eachChips[1];
-                        this.chipsInPool.DetailChipsPlayer1.Text=eachChipsPlayer[1];
+                        this.chipsInPool.DetailChipsNum1.Text = eachChips[1];
+                        this.chipsInPool.DetailChipsPlayer1.Text = eachChipsPlayer[1];
 
                         this.chipsInPool.DetailChips2.Visibility = Visibility.Visible;
                         this.chipsInPool.DetailChipsNum2.Visibility = Visibility.Visible;
@@ -614,10 +639,10 @@ namespace TexasWpfApplication.Pages
             }
 
             DataSet headPicSet = myService.GetRecord().GetRecordForLive();
-            if(headPicSet.Tables.Count!=0)
+            if (headPicSet.Tables.Count != 0)
             {
                 DataTable headPictureTable = headPicSet.Tables[0];
-                if(headPictureTable.Rows.Count!=0)
+                if (headPictureTable.Rows.Count != 0)
                 {
                     string headPic1 = headPictureTable.Rows[0]["HeadPicture1"].ToString();
                     string headPic2 = headPictureTable.Rows[0]["HeadPicture2"].ToString();
@@ -708,10 +733,117 @@ namespace TexasWpfApplication.Pages
                         picture8.Source = headPicSourceDefault;
                     }
                 }
-                
+
 
             }
-            
+
+        }
+
+        private void LoadResultPrivateCard()
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                if (!allOperations[i].Equals("弃牌"))
+                {
+                    SetPlayerPrivateCard(i + 1);
+                }
+            }
+
+        }
+
+        private void SetPlayerPrivateCard(int playerID)
+        {
+            if (allPrivateCards.Count >= playerID)
+            {
+                var tuple = allPrivateCards[playerID - 1];
+                string recordcard1 = tuple.Item1;
+                string recordcard2 = tuple.Item2;
+                if (recordcard1 != null && recordcard2 != null)
+                {
+                    BitmapImage privaterecord1 = new BitmapImage(new Uri("/Resources/Gray.png", UriKind.Relative));
+                    BitmapImage privaterecord2 = new BitmapImage(new Uri("/Resources/Gray.png", UriKind.Relative));
+                    if (recordcard1.Length != 0)
+                        privaterecord1 = new BitmapImage(new Uri("/Resources/Cards/" + recordcard1 + ".png", UriKind.Relative));
+                    if (recordcard2.Length != 0)
+                        privaterecord2 = new BitmapImage(new Uri("/Resources/Cards/" + recordcard2 + ".png", UriKind.Relative));
+                    //BitmapImage privaterecord1 = new BitmapImage(new Uri("/Resources/Cards/" + recordcard1 + ".png", UriKind.Relative));
+                    //BitmapImage privaterecord2 = new BitmapImage(new Uri("/Resources/Cards/" + recordcard2 + ".png", UriKind.Relative));
+                    switch (playerID)
+                    {
+                        case 1:
+                            this.card11.Source = privaterecord1;
+                            this.card12.Source = privaterecord2;
+                            break;
+                        case 2:
+                            this.card21.Source = privaterecord1;
+                            this.card22.Source = privaterecord2;
+                            break;
+                        case 3:
+                            this.card31.Source = privaterecord1;
+                            this.card32.Source = privaterecord2;
+                            break;
+                        case 4:
+                            this.card41.Source = privaterecord1;
+                            this.card42.Source = privaterecord2;
+                            break;
+                        case 5:
+                            this.card51.Source = privaterecord1;
+                            this.card52.Source = privaterecord2;
+                            break;
+                        case 6:
+                            this.card61.Source = privaterecord1;
+                            this.card62.Source = privaterecord2;
+                            break;
+                        case 7:
+                            this.card71.Source = privaterecord1;
+                            this.card72.Source = privaterecord2;
+                            break;
+                        case 8:
+                            this.card81.Source = privaterecord1;
+                            this.card82.Source = privaterecord2;
+                            break;
+                    }
+                }
+                else
+                {
+                    BitmapImage privateUnrecord = new BitmapImage(new Uri("/Resources/Cards/BACK.png", UriKind.Relative));
+                    switch (playerID)
+                    {
+                        case 1:
+                            this.card11.Source = privateUnrecord;
+                            this.card12.Source = privateUnrecord;
+                            break;
+                        case 2:
+                            this.card21.Source = privateUnrecord;
+                            this.card22.Source = privateUnrecord;
+                            break;
+                        case 3:
+                            this.card31.Source = privateUnrecord;
+                            this.card32.Source = privateUnrecord;
+                            break;
+                        case 4:
+                            this.card41.Source = privateUnrecord;
+                            this.card42.Source = privateUnrecord;
+                            break;
+                        case 5:
+                            this.card51.Source = privateUnrecord;
+                            this.card52.Source = privateUnrecord;
+                            break;
+                        case 6:
+                            this.card61.Source = privateUnrecord;
+                            this.card62.Source = privateUnrecord;
+                            break;
+                        case 7:
+                            this.card71.Source = privateUnrecord;
+                            this.card72.Source = privateUnrecord;
+                            break;
+                        case 8:
+                            this.card81.Source = privateUnrecord;
+                            this.card82.Source = privateUnrecord;
+                            break;
+                    }
+                }
+            }
         }
 
         private void LoadDesktop()
@@ -796,14 +928,14 @@ namespace TexasWpfApplication.Pages
             DataSet recordUnfinishedDS = serviceRecord.GetRecordForLive();
             if (recordUnfinishedDS.Tables.Count == 0)
                 return;
-            DataTable recordUnfinishedTable=recordUnfinishedDS.Tables[0];
+            DataTable recordUnfinishedTable = recordUnfinishedDS.Tables[0];
             if (recordUnfinishedTable.Rows.Count != 0)
             {
                 playerNumber = int.Parse(recordUnfinishedTable.Rows[0]["PlayerNumber"].ToString());
                 ShowPlayer();
 
                 DataSet allOperationInUnfinishedRecord = serviceBet.GetAllBetInUnfinishedRecord();
-                if (allOperationInUnfinishedRecord.Tables.Count==0)
+                if (allOperationInUnfinishedRecord.Tables.Count == 0)
                 {
                     Bubble.Visibility = Visibility.Hidden;
                     return;
@@ -816,7 +948,7 @@ namespace TexasWpfApplication.Pages
                         return;
                     }
                 }
-                
+
 
             }
             else
@@ -912,7 +1044,7 @@ namespace TexasWpfApplication.Pages
                 Bubble7.Visibility = Visibility.Hidden;
                 Bubble8.Visibility = Visibility.Hidden;
 
-                
+
 
                 this.card1.Source = publicOld1;
                 this.card2.Source = publicOld1;
@@ -923,10 +1055,10 @@ namespace TexasWpfApplication.Pages
                 return;
             }
 
-            
-            
 
-            
+
+
+
 
             DataSet operationTable = serviceBet.GetBetForLive1();
             if (operationTable.Tables.Count == 0)
@@ -965,6 +1097,7 @@ namespace TexasWpfApplication.Pages
                 if (operationNum < 8)
                     this.Operation8.Content = "等待";
             }
+
             for (int i = 0; i < operationTable.Tables[0].Rows.Count; i++)
             {
                 int playerID = int.Parse(operationTable.Tables[0].Rows[i]["PlayerID"].ToString());
@@ -976,7 +1109,7 @@ namespace TexasWpfApplication.Pages
                 if (operation.Equals("加注"))
                     operation = "加至";
                 //荷官 贷款后 ，把Player上的气泡隐藏
-                if(operation.Equals("小盲"))
+                if (operation.Equals("小盲"))
                 {
                     Bubble.Visibility = Visibility.Hidden;
                     Bubble1.Visibility = Visibility.Hidden;
@@ -1026,13 +1159,13 @@ namespace TexasWpfApplication.Pages
                             if (operation.Equals("贷款"))
                             {
                                 Bubble.Visibility = Visibility.Hidden;
-                                for(int j=0;j<startChipsTable.Rows.Count;j++)
+                                for (int j = 0; j < startChipsTable.Rows.Count; j++)
                                 {
                                     int pID = int.Parse(startChipsTable.Rows[j]["PlayerID"].ToString());
-                                    string loanC=startChipsTable.Rows[j]["LoanChips"].ToString();
-                                    if(!loanC.Equals("0"))
+                                    string loanC = startChipsTable.Rows[j]["LoanChips"].ToString();
+                                    if (!loanC.Equals("0"))
                                     {
-                                        switch(pID)
+                                        switch (pID)
                                         {
                                             case 1:
                                                 Bubble1.Title.Text = "借款";
@@ -1083,7 +1216,7 @@ namespace TexasWpfApplication.Pages
                                 DataSet tempJudge = myService.GetPlayerChip().GetLastGameResultForLive();
                                 if (tempJudge.Tables.Count == 0)
                                     return;
-                                DataTable lastGameResultTable=tempJudge.Tables[0];
+                                DataTable lastGameResultTable = tempJudge.Tables[0];
                                 Bubble.Visibility = Visibility.Hidden;
 
                                 for (int j = 0; j < lastGameResultTable.Rows.Count; j++)
@@ -1156,7 +1289,7 @@ namespace TexasWpfApplication.Pages
                                 this.imageChips7.Visibility = Visibility.Hidden;
 
                                 //显示游戏结果
-                                if(recordUnfinishedTable.Rows.Count!=0)
+                                if (recordUnfinishedTable.Rows.Count != 0)
                                 {
                                     bool isExit = false;
                                     foreach (Window w in App.Current.Windows)
@@ -1166,14 +1299,14 @@ namespace TexasWpfApplication.Pages
                                             isExit = true;
                                         }
                                     }
-                                    if(!isExit)
+                                    if (!isExit)
                                     {
                                         int recordID = int.Parse(recordUnfinishedTable.Rows[0]["ID"].ToString());
                                         GameResult newwindow = new GameResult(recordID, playerNumber);
                                         newwindow.AutoClose = true;
                                         newwindow.Show();
                                     }
-                                    
+
                                 }
 
                             }
@@ -1215,7 +1348,7 @@ namespace TexasWpfApplication.Pages
                         }
                         else if (operation.Equals("发牌"))
                         {
-                            
+
 
                             Bubble.Visibility = Visibility.Visible;
                             Bubble.Title.Text = "发牌";
@@ -1299,9 +1432,9 @@ namespace TexasWpfApplication.Pages
                             Bet1.Content = ":  " + chipsBet;
                             this.Bubble1.Content.Text = chipsBet;
                         }
-                        
+
                         this.Bubble1.Title.Text = operation;
-                        
+
                         Bubble1.Visibility = Visibility.Visible;
                         break;
                     case 2:
@@ -1385,6 +1518,44 @@ namespace TexasWpfApplication.Pages
 
             }
 
+            if (operationTable.Tables[0].Rows.Count > 0 &&
+                operationTable.Tables[0].Rows[operationTable.Tables[0].Rows.Count - 1]["Operation"].ToString().Equals("判定"))
+            {
+                LoadResultPrivateCard();
+            }
+            else
+            {
+                allOperations.Clear();
+                foreach (var item in operations)
+                {
+                    allOperations.Add(item.Content.ToString());
+                }
+                ServiceCard.CardSoapClient privatecardservice = myService.GetCard();
+                allPrivateCards.Clear();
+                for (int id = 0; id < 8; id++)
+                {
+                    DataSet privateCardSet = privatecardservice.GetPrivateCardByPlayerID(id + 1);
+                    if (privateCardSet.Tables.Count != 0)
+                    {
+                        DataTable tablePrivateCard = privateCardSet.Tables[0];
+                        if (tablePrivateCard.Rows.Count != 0)
+                        {
+                            string recordcard1 = tablePrivateCard.Rows[0]["FirstCard"].ToString();
+                            string recordcard2 = tablePrivateCard.Rows[0]["SecondCard"].ToString();
+                            allPrivateCards.Add(new Tuple<string, string>(recordcard1, recordcard2));
+                        }
+                        else
+                        {
+                            allPrivateCards.Add(new Tuple<string, string>(null, null));
+                        }
+                    }
+                    else
+                    {
+                        allPrivateCards.Add(new Tuple<string, string>(null, null));
+                    }
+                }
+            }
+
             //从服务器读取PublicCard，显示公共明牌
             ServiceCard.CardSoapClient serviceCard = myService.GetCard();
             DataSet publicCardTable = serviceCard.GetPublicCardForLive();
@@ -1393,9 +1564,9 @@ namespace TexasWpfApplication.Pages
             string card3 = "";
             string card4 = "";
             string card5 = "";
-            if (publicCardTable.Tables.Count!=0)
+            if (publicCardTable.Tables.Count != 0)
             {
-                if(publicCardTable.Tables[0].Rows.Count!=0)
+                if (publicCardTable.Tables[0].Rows.Count != 0)
                 {
                     card1 = publicCardTable.Tables[0].Rows[0]["FirstCard"].ToString();
                     card2 = publicCardTable.Tables[0].Rows[0]["SecondCard"].ToString();
@@ -1404,7 +1575,7 @@ namespace TexasWpfApplication.Pages
                     card5 = publicCardTable.Tables[0].Rows[0]["FifthCard"].ToString();
                 }
             }
-            
+
             if (card1.Length == 3)
             {
                 BitmapImage imagetemp = new BitmapImage(new Uri("/Resources/Cards/" + card1 + ".png", UriKind.Relative));
@@ -1448,8 +1619,8 @@ namespace TexasWpfApplication.Pages
             //ServiceCard.CardSoapClient privatecardservice = myService.GetCard();
             //DataSet privateCardSet = privatecardservice.GetPrivateCardByPlayerID(playerID);
 
-            
-            
+
+
         }
 
         private void imageQuit_MouseEnter(object sender, MouseEventArgs e)
