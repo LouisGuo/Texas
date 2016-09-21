@@ -44,8 +44,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Texas\Card.cs" />
+    <Compile Include="Texas\CardsType.cs" />
     <Compile Include="Texas\CardSum.cs" />
     <Compile Include="Texas\CardUtil.cs" />
+    <Compile Include="Texas\Color.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
