@@ -68,23 +68,8 @@ namespace TexasWpfApplication.Pages
             {
                 return;
             }
-
             BitmapImage privateUnrecord = new BitmapImage(new Uri("/Resources/Cards/BACK.png", UriKind.Relative));
-            var cardList = new List<Image>()
-            {
-                card11,card12,
-                card21,card22,
-                card31,card32,
-                card41,card42,
-                card51,card52,
-                card61,card62,
-                card71,card72,
-                card81,card82,
-            };
-            foreach (var cardImage in cardList)
-            {
-                cardImage.Source = privateUnrecord;
-            }
+
             ServiceCard.CardSoapClient privatecardservice = myService.GetCard();
             DataSet privateCardSet = privatecardservice.GetPrivateCardByPlayerID(playerID);
             if (privateCardSet.Tables.Count != 0)
@@ -305,9 +290,29 @@ namespace TexasWpfApplication.Pages
             timer.Start();
         }
 
+        private void ResetAllPrivateCards()
+        {
+            BitmapImage privateUnrecord = new BitmapImage(new Uri("/Resources/Cards/BACK.png", UriKind.Relative));
+            var cardList = new List<Image>()
+            {
+                card11,card12,
+                card21,card22,
+                card31,card32,
+                card41,card42,
+                card51,card52,
+                card61,card62,
+                card71,card72,
+                card81,card82,
+            };
+            foreach (var cardImage in cardList)
+            {
+                cardImage.Source = privateUnrecord;
+            }
+        }
 
         public void theout(object source, EventArgs e)
         {
+            this.ResetAllPrivateCards();
             //从数据库读取privateCard，显示私牌 
             if (playerID != 0)
                 LoadPrivateCardForPangguan();
