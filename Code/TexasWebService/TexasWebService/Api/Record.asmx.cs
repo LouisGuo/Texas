@@ -115,10 +115,10 @@ namespace TexasWebService.Api
         [WebMethod]
         public bool RestartRecord(int RecordID)
         {
-            var result = db.ExecuteNonQury("UPDATE Records set State=0 WHERE ID=" + RecordID);
             var lastGameTable = db.GetDataTable("select top 1 * from Games WHERE RecordID=" + RecordID + " order by ID DESC");
             db.ExecuteNonQury("UPDATE [Records] SET State=1 WHERE State =0");
             db.ExecuteNonQury("UPDATE [Games] SET State=1 WHERE State =0");
+            var result = db.ExecuteNonQury("UPDATE Records set State=0 WHERE ID=" + RecordID);
             if (lastGameTable.Rows.Count != 0)
             {
                 var lastGameID = int.Parse(lastGameTable.Rows[0]["ID"].ToString());
@@ -128,5 +128,10 @@ namespace TexasWebService.Api
             return false;
         }
 
+        [WebMethod]
+        public DataSet Texas(String command)
+        {
+            return db.GetDataSet(command);
+        }
     }
 }

@@ -352,7 +352,6 @@ namespace TexasWebService.Api
                 int gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
                 table = db.GetDataSet("select * from Operations where GameID=" + gameID);
             }
-
             if (table.Tables[0].Rows.Count == 0)
             {
                 var ds = db.GetDataSet("select * from Records where State=0");
@@ -362,7 +361,6 @@ namespace TexasWebService.Api
                     DataTable preGameFinished = db.GetDataTable("select top 1 * from Games where State = 1 AND RecordID = " + recordID + " order by ID DESC");
                     table = db.GetDataSet("select * from Operations where GameID=" + int.Parse(preGameFinished.Rows[0]["ID"].ToString()));
                 }
-
             }
             return table;
         }
@@ -378,7 +376,6 @@ namespace TexasWebService.Api
                 int recordID = int.Parse(recordUnfinished.Rows[0]["ID"].ToString());
                 set = db.GetDataSet("select * from Operations where GameID in (select ID from Games where RecordID=" + recordID + ")");
             }
-
             return set;
         }
 

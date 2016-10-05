@@ -29,10 +29,10 @@ namespace TexasWebService.Api
         [WebMethod]
         public bool CheckAdministrator(string name, string password)
         {
-            DataTable table = db.GetDataTable("select * from Administrators where UserName='"+name+"'");
-            if(table.Rows.Count!=0&&table!=null)
+            DataTable table = db.GetDataTable("select * from Administrators where UserName='" + name + "'");
+            if (table.Rows.Count != 0 && table != null)
             {
-                if(table.Rows[0]["Password"].ToString().Equals(password))
+                if (table.Rows[0]["Password"].ToString().Equals(password))
                 {
                     return true;
                 }
@@ -46,15 +46,15 @@ namespace TexasWebService.Api
             if (db.ExecuteNonQury("update Administrators set Password='" + newPassword + "' where UserName='" + name + "'"))
             {
                 return true;
-            }        
+            }
             return false;
         }
 
         [WebMethod]
         public int GetPlayerIDForPlayerLogin(string ipAdress)
         {
-            DataTable ipTable = db.GetDataTable("select * from PlayerIPs where IPAdress='"+ipAdress+"'");
-            if(ipTable.Rows.Count!=0)
+            DataTable ipTable = db.GetDataTable("select * from PlayerIPs where IPAdress='" + ipAdress + "'");
+            if (ipTable.Rows.Count != 0)
             {
                 return int.Parse(ipTable.Rows[0]["PlayerID"].ToString());
             }
@@ -66,13 +66,13 @@ namespace TexasWebService.Api
         {
             bool result = false;
             DataTable oldIPTable = db.GetDataTable("select * from PlayerIPs where IPAdress='" + ipAdress + "'");
-            if(oldIPTable.Rows.Count==0)
+            if (oldIPTable.Rows.Count == 0)
             {
-                result = db.ExecuteNonQury(string.Format("insert into PlayerIPs(IPAdress, PlayerID) values('{0}','{1}')",ipAdress,playerID));   
+                result = db.ExecuteNonQury(string.Format("insert into PlayerIPs(IPAdress, PlayerID) values('{0}','{1}')", ipAdress, playerID));
             }
             else
             {
-                result = db.ExecuteNonQury("update PlayerIPs set PlayerID="+playerID+" where IPAdress ='"+ipAdress+"'");
+                result = db.ExecuteNonQury("update PlayerIPs set PlayerID=" + playerID + " where IPAdress ='" + ipAdress + "'");
             }
 
             return true;
