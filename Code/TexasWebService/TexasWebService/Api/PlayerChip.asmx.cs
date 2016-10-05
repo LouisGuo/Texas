@@ -27,21 +27,21 @@ namespace TexasWebService.Api
         }
 
         [WebMethod]
-        public bool NewLoan(int loanchips1, int loanchips2,int loanchips3,int loanchips4,int loanchips5,int loanchips6,int loanchips7,int loanchips8)
+        public bool NewLoan(int loanchips1, int loanchips2, int loanchips3, int loanchips4, int loanchips5, int loanchips6, int loanchips7, int loanchips8)
         {
-            DataTable gameUnfinished = db.GetDataTable("select * from Games where State=0");
-            int gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
-            DataTable tableplayerchips = db.GetDataTable("select * from PlayerChips where GameID =" + gameID);
-            int playerNumber = tableplayerchips.Rows.Count;
+            var gameUnfinished = db.GetDataTable("select * from Games where State=0");
+            var gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
+            var tableplayerchips = db.GetDataTable("select * from PlayerChips where GameID =" + gameID);
+            var playerNumber = tableplayerchips.Rows.Count;
             int[] loanchips = new int[] { loanchips1, loanchips2, loanchips3, loanchips4, loanchips5, loanchips6, loanchips7, loanchips8 };
-            for (int i = 1; i <= playerNumber;i++ )
+            for (int i = 1; i <= playerNumber; i++)
             {
-                db.ExecuteNonQury("update PlayerChips set LoanChips= LoanChips + " + loanchips[i-1] + "where PlayerID="+i+" and GameID=" + gameID);
+                db.ExecuteNonQury("update PlayerChips set LoanChips= LoanChips + " + loanchips[i - 1] + "where PlayerID=" + i + " and GameID=" + gameID);
 
-                DataTable start1 = db.GetDataTable("select * from PlayerChips where GameID=" + gameID + " and PlayerID="+i);
+                DataTable start1 = db.GetDataTable("select * from PlayerChips where GameID=" + gameID + " and PlayerID=" + i);
                 int startChips1 = int.Parse(start1.Rows[0]["StartChips"].ToString());
-                int newstartChips1 = startChips1 + loanchips[i-1];
-                db.ExecuteNonQury("update PlayerChips set StartChips=" + newstartChips1 +"where PlayerID="+i+"and GameID="+gameID);
+                int newstartChips1 = startChips1 + loanchips[i - 1];
+                db.ExecuteNonQury("update PlayerChips set StartChips=" + newstartChips1 + "where PlayerID=" + i + "and GameID=" + gameID);
             }
 
             return true;
@@ -49,28 +49,32 @@ namespace TexasWebService.Api
 
         [WebMethod]
         //gainChips修改为玩家的名次
-        public bool JudgeWinner(int gainchips1,int gainchips2,int gainchips3,int gainchips4,int gainchips5,int gainchips6,int gainchips7,int gainchips8)
+        public bool JudgeWinner(int gainchips1, int gainchips2, int gainchips3, int gainchips4, int gainchips5, int gainchips6, int gainchips7, int gainchips8)
         {
-            DataTable gameUnfinished = db.GetDataTable("select * from Games where State=0");
-            int gameID=int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
-            DataTable tableplayerchips = db.GetDataTable("select * from PlayerChips where GameID ="+gameID);
+            var gameUnfinished = db.GetDataTable("select * from Games where State=0");
+            int gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
+            var tableplayerchips = db.GetDataTable("select * from PlayerChips where GameID =" + gameID);
             int playerNumber = tableplayerchips.Rows.Count;
             int[] gainChips = new int[] { gainchips1, gainchips2, gainchips3, gainchips4, gainchips5, gainchips6, gainchips7, gainchips8 };
+            //int bet11 = int.Parse(PreplayerChips1.Rows[0]["BetChips1"].ToString());
+            //int bet12 = int.Parse(PreplayerChips1.Rows[0]["BetChips2"].ToString());
+            //int bet13 = int.Parse(PreplayerChips1.Rows[0]["BetChips3"].ToString());
+            //int bet14 = int.Parse(PreplayerChips1.Rows[0]["BetChips4"].ToString());
 
             List<string> playerOrderList = new List<string>();
-            for (int i = 1; i <= playerNumber;i++ )
+            for (int i = 1; i <= playerNumber; i++)
             {
-                for(int j=0;j<playerNumber;j++)
+                for (int j = 0; j < playerNumber; j++)
                 {
-                    if(gainChips[j]==i)
+                    if (gainChips[j] == i)
                     {
-                        if(playerOrderList.Count<i)
+                        if (playerOrderList.Count < i)
                         {
-                            playerOrderList.Add(""+(j+1));
+                            playerOrderList.Add("" + (j + 1));
                         }
                         else
                         {
-                            playerOrderList[i-1]=playerOrderList[i-1]+(j+1);
+                            playerOrderList[i - 1] = playerOrderList[i - 1] + (j + 1);
                         }
                     }
                 }
@@ -106,15 +110,15 @@ namespace TexasWebService.Api
             }
 
             int chipsAlreadyTaken = 0;
-            int[] reallyGainChips=new int[8];
+            int[] reallyGainChips = new int[8];
 
-            for (int i = 0; i < playerOrderList.Count;i++ )
+            for (int i = 0; i < playerOrderList.Count; i++)
             {
-                if(playerOrderList[i].Length==1)
+                if (playerOrderList[i].Length == 1)
                 {
                     int winnerPlayerID = int.Parse(playerOrderList[i].ToString());
-                    reallyGainChips[winnerPlayerID-1]=chipsHopesToWin[winnerPlayerID-1]-chipsAlreadyTaken;
-                    chipsAlreadyTaken=chipsHopesToWin[winnerPlayerID-1];
+                    reallyGainChips[winnerPlayerID - 1] = chipsHopesToWin[winnerPlayerID - 1] - chipsAlreadyTaken;
+                    chipsAlreadyTaken = chipsHopesToWin[winnerPlayerID - 1];
                 }
                 else
                 {
@@ -122,54 +126,57 @@ namespace TexasWebService.Api
                     List<int> levelChipsHopeToWinArise = new List<int>();
                     List<int> levelPlayerID = new List<int>();
 
-                    for(int s1=0;s1<levelPlayerNumber;s1++)
+                    for (int s1 = 0; s1 < levelPlayerNumber; s1++)
                     {
                         int min = 100000000;
                         int index = 0;
-                        for(int s2=0;s2<levelPlayerNumber;s2++)
+                        for (int s2 = 0; s2 < levelPlayerNumber; s2++)
                         {
-                            int tempPlayerID = int.Parse(playerOrderList[i].Substring(s2,1));
+                            int tempPlayerID = int.Parse(playerOrderList[i].Substring(s2, 1));
 
-                            if(chipsHopesToWin[tempPlayerID-1]<=min)
+                            if (chipsHopesToWin[tempPlayerID - 1] <= min)
                             {
                                 min = chipsHopesToWin[tempPlayerID - 1];
                                 index = tempPlayerID - 1;
                             }
-                                
+
                         }
 
                         levelChipsHopeToWinArise.Add(min);
-                        levelPlayerID.Add(index+1);
+                        levelPlayerID.Add(index + 1);
                         chipsHopesToWin[index] = 100000000;
                     }
 
                     List<int> eachLevelGain = new List<int>();
-                    eachLevelGain.Add((levelChipsHopeToWinArise[0]-chipsAlreadyTaken)/levelPlayerNumber);
-                    for(int s=1;s<levelPlayerNumber;s++)
+                    eachLevelGain.Add((levelChipsHopeToWinArise[0] - chipsAlreadyTaken) / levelPlayerNumber);
+                    for (int s = 1; s < levelPlayerNumber; s++)
                     {
-                        eachLevelGain.Add(levelChipsHopeToWinArise[s]-levelChipsHopeToWinArise[s-1]);
+                        eachLevelGain.Add(levelChipsHopeToWinArise[s] - levelChipsHopeToWinArise[s - 1]);
                     }
 
-                    for(int s=0;s<levelPlayerNumber;s++)
+                    for (int s = 0; s < levelPlayerNumber; s++)
                     {
-                        for(int s1=0;s1<levelPlayerNumber;s1++)
+                        for (int s1 = 0; s1 < levelPlayerNumber; s1++)
                         {
-                            if(s1<=s)
+                            if (s1 <= s)
                             {
-                                reallyGainChips[levelPlayerID[s]-1]+=eachLevelGain[s1];
+                                reallyGainChips[levelPlayerID[s] - 1] += eachLevelGain[s1];
                             }
                         }
                     }
-                    chipsAlreadyTaken=levelChipsHopeToWinArise[levelChipsHopeToWinArise.Count-1];
+                    chipsAlreadyTaken = levelChipsHopeToWinArise[levelChipsHopeToWinArise.Count - 1];
                 }
             }
+            //result = db.ExecuteNonQury("delete from PlayerChips where RecordID=" + recordID);
+            //result = db.ExecuteNonQury("delete from Operations where GameID in (select ID from Games where RecordID=" + recordID + ")");
+            //result = db.ExecuteNonQury("delete from PrivateCards where GameID in (select ID from Games where RecordID=" + recordID + ")");
+            //result = db.ExecuteNonQury("delete from Games where RecordID =" + recordID);
 
-
-                for (int i = 1; i <= playerNumber; i++)
-                {
-                    db.ExecuteNonQury("update PlayerChips set GainChips=" + reallyGainChips[i - 1] + "where PlayerID=" + i + " and GameID=" + gameID);
-                }
-            db.ExecuteNonQury(string.Format("insert into Operations(GameID,PlayerID,Operation) values('{0}','{1}','{2}')",gameID,0,"判定"));
+            for (int i = 1; i <= playerNumber; i++)
+            {
+                db.ExecuteNonQury("update PlayerChips set GainChips=" + reallyGainChips[i - 1] + "where PlayerID=" + i + " and GameID=" + gameID);
+            }
+            db.ExecuteNonQury(string.Format("insert into Operations(GameID,PlayerID,Operation) values('{0}','{1}','{2}')", gameID, 0, "判定"));
             //db.ExecuteNonQury("update Games set State=1 where State=0");
             //db.ExecuteNonQury(string.Format("insert into Games(RecordID,State) values('{0}','{1}')",int.Parse(gameUnfinished.Rows[0]["RecordID"].ToString()),0));
 
@@ -184,12 +191,12 @@ namespace TexasWebService.Api
         {
             DataSet resultSet = new DataSet();
             DataTable gameUnfinished = db.GetDataTable("select * from Games where State=0");
-            if(gameUnfinished.Rows.Count!=0)
+            if (gameUnfinished.Rows.Count != 0)
             {
                 int gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
                 resultSet = db.GetDataSet("select * from PlayerChips where GameID=" + gameID);
             }
-            
+
             return resultSet;
         }
 
@@ -223,13 +230,13 @@ namespace TexasWebService.Api
         [WebMethod]
         public DataSet GetPlayerChipsByRecordID(int recordID)
         {
-            DataSet resultSet = db.GetDataSet("select * from PlayerChips where RecordID=" + recordID +" order by ID");
+            DataSet resultSet = db.GetDataSet("select * from PlayerChips where RecordID=" + recordID + " order by ID");
 
             return resultSet;
         }
 
         [WebMethod]
-        public bool SetHeadPicture(int playerID,string headPicture)
+        public bool SetHeadPicture(int playerID, string headPicture)
         {
             DataTable recordUnfinished = db.GetDataTable("select * from Records where State=0");
 
@@ -323,13 +330,13 @@ namespace TexasWebService.Api
                             chipsHopesToWin[i] += playerAllBetChips[i];
                             chipsHopesToWin1[i] += playerAllBetChips[i];
                         }
-                            
+
                         else
                         {
                             chipsHopesToWin[i] += playerAllBetChips[j];
                             chipsHopesToWin1[i] += playerAllBetChips[j];
                         }
-                            
+
                     }
                 }
 
@@ -357,11 +364,11 @@ namespace TexasWebService.Api
                     chipsHopesToWin[index] = 0;
                 }
 
-                for(int i=ChipsHopesToWinDESC.Length;i>1;i--)
+                for (int i = ChipsHopesToWinDESC.Length; i > 1; i--)
                 {
                     string thisCipsPlayer = "";
                     int newChipsinpool = ChipsHopesToWinDESC[i - 1] - ChipsHopesToWinDESC[i - 2];
-                    if(newChipsinpool<0)
+                    if (newChipsinpool < 0)
                     {
                         for (int j = 0; j < chipsHopesToWin1.Length; j++)
                         {
@@ -369,7 +376,7 @@ namespace TexasWebService.Api
                             {
                                 if (chipsHopesToWin1[j] >= ChipsHopesToWinDESC[i - 2])
                                 {
-                                    thisCipsPlayer = thisCipsPlayer + (j+1) + ",";
+                                    thisCipsPlayer = thisCipsPlayer + (j + 1) + ",";
                                 }
                             }
                         }
@@ -378,10 +385,10 @@ namespace TexasWebService.Api
                 }
 
                 string thisCipsPlayer0 = "";
-                for(int j=0;j<chipsHopesToWin1.Length;j++)
+                for (int j = 0; j < chipsHopesToWin1.Length; j++)
                 {
-                    
-                    if(chipsHopesToWin1[j]>= ChipsHopesToWinDESC[0])
+
+                    if (chipsHopesToWin1[j] >= ChipsHopesToWinDESC[0])
                         thisCipsPlayer0 = thisCipsPlayer0 + (j + 1) + ",";
                 }
                 playerChipsInPool = playerChipsInPool + "&" + thisCipsPlayer0;
@@ -403,15 +410,15 @@ namespace TexasWebService.Api
         [WebMethod]
         public string GetChipsInPoolForLive(string chipsBet)
         {
-            string chipsInPool="";
+            string chipsInPool = "";
 
             DataTable gameUnfinished = db.GetDataTable("select * from Games where State=0");
-            if(gameUnfinished.Rows.Count!=0)
+            if (gameUnfinished.Rows.Count != 0)
             {
                 int gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
-                DataTable playerChipsTable = db.GetDataTable("select * from PlayerChips where GameID="+gameID);
-                int[] playerAllBetChips=new int[8];
-                for(int i=0;i<playerChipsTable.Rows.Count;i++)
+                DataTable playerChipsTable = db.GetDataTable("select * from PlayerChips where GameID=" + gameID);
+                int[] playerAllBetChips = new int[8];
+                for (int i = 0; i < playerChipsTable.Rows.Count; i++)
                 {
                     int betChips1 = int.Parse(playerChipsTable.Rows[i]["BetChips1"].ToString());
                     int betChips2 = int.Parse(playerChipsTable.Rows[i]["BetChips2"].ToString());
@@ -425,12 +432,12 @@ namespace TexasWebService.Api
                     else if (chipsBet.Equals("3"))
                         playerAllBetChips[i] = betChips1 + betChips2 + betChips3;
                     else
-                        playerAllBetChips[i] = betChips1 + betChips2 + betChips3+betChips4;
+                        playerAllBetChips[i] = betChips1 + betChips2 + betChips3 + betChips4;
                 }
-                DataTable allInOperationTable = db.GetDataTable("select * from Operations where GameID="+gameID+" and Operation='全下'");
+                DataTable allInOperationTable = db.GetDataTable("select * from Operations where GameID=" + gameID + " and Operation='全下'");
 
                 DataTable foldOperationTable = new DataTable();
-                DataTable fapaiOperationTable = db.GetDataTable("select * from Operations where GameID="+gameID+" and Operation='发牌' and ChipsBet='"+chipsBet+"'");
+                DataTable fapaiOperationTable = db.GetDataTable("select * from Operations where GameID=" + gameID + " and Operation='发牌' and ChipsBet='" + chipsBet + "'");
                 if (fapaiOperationTable.Rows.Count == 0)
                 {
                     foldOperationTable = db.GetDataTable("select * from Operations where GameID=" + gameID + " and Operation='弃牌'");
@@ -440,12 +447,12 @@ namespace TexasWebService.Api
                     int fapaiID = int.Parse(fapaiOperationTable.Rows[0]["ID"].ToString());
                     foldOperationTable = db.GetDataTable("select * from Operations where GameID=" + gameID + " and Operation='弃牌' and ID<" + fapaiID);
                 }
-                
 
-                int[] chipsHopesToWin=new int[8];
-                for(int i=0;i<playerChipsTable.Rows.Count;i++)
+
+                int[] chipsHopesToWin = new int[8];
+                for (int i = 0; i < playerChipsTable.Rows.Count; i++)
                 {
-                    for(int j=0;j<playerChipsTable.Rows.Count;j++)
+                    for (int j = 0; j < playerChipsTable.Rows.Count; j++)
                     {
                         if (playerAllBetChips[i] <= playerAllBetChips[j])
                             chipsHopesToWin[i] += playerAllBetChips[i];
@@ -454,33 +461,33 @@ namespace TexasWebService.Api
                     }
                 }
 
-                for(int i=0;i<foldOperationTable.Rows.Count;i++)
+                for (int i = 0; i < foldOperationTable.Rows.Count; i++)
                 {
-                    chipsHopesToWin[int.Parse(foldOperationTable.Rows[i]["PlayerID"].ToString())-1]=0;
+                    chipsHopesToWin[int.Parse(foldOperationTable.Rows[i]["PlayerID"].ToString()) - 1] = 0;
                 }
-                
-                int[] ChipsHopesToWinDESC=new int[8];
-                for(int i=0;i<playerChipsTable.Rows.Count;i++)
+
+                int[] ChipsHopesToWinDESC = new int[8];
+                for (int i = 0; i < playerChipsTable.Rows.Count; i++)
                 {
                     int max = 0;
                     int index = 0;
-                    for(int j=0;j<playerChipsTable.Rows.Count;j++)
+                    for (int j = 0; j < playerChipsTable.Rows.Count; j++)
                     {
-                        if(chipsHopesToWin[j]>=max)
+                        if (chipsHopesToWin[j] >= max)
                         {
-                            max=chipsHopesToWin[j];
+                            max = chipsHopesToWin[j];
                             index = j;
                         }
                     }
                     ChipsHopesToWinDESC[i] = max;
                     max = 0;
-                    chipsHopesToWin[index]=0;
+                    chipsHopesToWin[index] = 0;
                 }
                 if (ChipsHopesToWinDESC[playerChipsTable.Rows.Count - 1] != 0)
                     chipsInPool = chipsInPool + "&" + ChipsHopesToWinDESC[playerChipsTable.Rows.Count - 1];
-                for(int i=playerChipsTable.Rows.Count;i>1;i--)
+                for (int i = playerChipsTable.Rows.Count; i > 1; i--)
                 {
-                    int newChipsinpool=ChipsHopesToWinDESC[i-2]-ChipsHopesToWinDESC[i-1];
+                    int newChipsinpool = ChipsHopesToWinDESC[i - 2] - ChipsHopesToWinDESC[i - 1];
                     if (newChipsinpool > 0)
                         chipsInPool = chipsInPool + "&" + newChipsinpool;
                 }
@@ -491,7 +498,7 @@ namespace TexasWebService.Api
         }
 
         [WebMethod]
-        public string GetChipsInPoolByGameID(int gameID,string chipsBet)
+        public string GetChipsInPoolByGameID(int gameID, string chipsBet)
         {
             string chipsInPool = "";
             DataTable playerChipsTable = db.GetDataTable("select * from PlayerChips where GameID=" + gameID);
@@ -576,19 +583,19 @@ namespace TexasWebService.Api
             DataTable gameUnfinished = db.GetDataTable("select * from Games where State=0");
             if (gameUnfinished.Rows.Count != 0)
             {
-                int gameID=int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
+                int gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
                 DataTable fapaiOperationTable = db.GetDataTable("select * from Operations where Operation='发牌' and  GameID=" + gameID);
-                int turns=fapaiOperationTable.Rows.Count;
-                DataTable playerChipsTable = db.GetDataTable("select * from PlayerChips where GameID="+gameID);
-                if(turns==0)
+                int turns = fapaiOperationTable.Rows.Count;
+                DataTable playerChipsTable = db.GetDataTable("select * from PlayerChips where GameID=" + gameID);
+                if (turns == 0)
                 {
-                    for(int i=0;i<playerChipsTable.Rows.Count;i++)
+                    for (int i = 0; i < playerChipsTable.Rows.Count; i++)
                     {
                         if (int.Parse(playerChipsTable.Rows[i]["BetChips1"].ToString()) > maxBetChips)
                             maxBetChips = int.Parse(playerChipsTable.Rows[i]["BetChips1"].ToString());
                     }
                 }
-                else if(turns==1)
+                else if (turns == 1)
                 {
                     for (int i = 0; i < playerChipsTable.Rows.Count; i++)
                     {
@@ -596,7 +603,7 @@ namespace TexasWebService.Api
                             maxBetChips = int.Parse(playerChipsTable.Rows[i]["BetChips2"].ToString());
                     }
                 }
-                else if(turns ==2)
+                else if (turns == 2)
                 {
                     for (int i = 0; i < playerChipsTable.Rows.Count; i++)
                     {
@@ -604,7 +611,7 @@ namespace TexasWebService.Api
                             maxBetChips = int.Parse(playerChipsTable.Rows[i]["BetChips3"].ToString());
                     }
                 }
-                else if(turns ==3)
+                else if (turns == 3)
                 {
                     for (int i = 0; i < playerChipsTable.Rows.Count; i++)
                     {
@@ -626,25 +633,25 @@ namespace TexasWebService.Api
                 int gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
                 DataTable fapaiOperationTable = db.GetDataTable("select * from Operations where Operation='发牌' and  GameID=" + gameID);
                 int turns = fapaiOperationTable.Rows.Count;
-                DataTable playerChipsTable = db.GetDataTable("select * from PlayerChips where GameID=" + gameID +" and PlayerID="+playerID);
+                DataTable playerChipsTable = db.GetDataTable("select * from PlayerChips where GameID=" + gameID + " and PlayerID=" + playerID);
                 int betChips1 = int.Parse(playerChipsTable.Rows[0]["BetChips1"].ToString());
                 int betChips2 = int.Parse(playerChipsTable.Rows[0]["BetChips2"].ToString());
                 int betChips3 = int.Parse(playerChipsTable.Rows[0]["BetChips3"].ToString());
                 int betChips4 = int.Parse(playerChipsTable.Rows[0]["BetChips4"].ToString());
 
-                if(turns==0)
+                if (turns == 0)
                 {
                     turnsBetChips = betChips1;
                 }
-                else if(turns==1)
+                else if (turns == 1)
                 {
                     turnsBetChips = betChips2;
                 }
-                else if(turns==2)
+                else if (turns == 2)
                 {
                     turnsBetChips = betChips3;
                 }
-                else if(turns==3)
+                else if (turns == 3)
                 {
                     turnsBetChips = betChips4;
                 }
@@ -676,15 +683,15 @@ namespace TexasWebService.Api
                 }
                 else if (turns == 1)
                 {
-                    turnsLeftBetChips =startChips - betChips1;
+                    turnsLeftBetChips = startChips - betChips1;
                 }
                 else if (turns == 2)
                 {
-                    turnsLeftBetChips = startChips -betChips1- betChips2;
+                    turnsLeftBetChips = startChips - betChips1 - betChips2;
                 }
                 else if (turns == 3)
                 {
-                    turnsLeftBetChips = startChips-betChips1-betChips2-betChips3;
+                    turnsLeftBetChips = startChips - betChips1 - betChips2 - betChips3;
                 }
 
             }

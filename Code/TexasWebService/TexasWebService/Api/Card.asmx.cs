@@ -34,20 +34,20 @@ namespace TexasWebService.Api
                 return false;
             else
             {
-                db.ExecuteNonQury("update Games set FirstCard = '" + firstCard + "', SecondCard='"+secondCard+"'  where ID=" + int.Parse(table.Rows[0]["ID"].ToString()));
+                db.ExecuteNonQury("update Games set FirstCard = '" + firstCard + "', SecondCard='" + secondCard + "'  where ID=" + int.Parse(table.Rows[0]["ID"].ToString()));
                 return true;
             }
         }
 
         [WebMethod]
-        public bool DealFirstThreePublicCard(string firstCard,string secondCard, string thirdCard)
+        public bool DealFirstThreePublicCard(string firstCard, string secondCard, string thirdCard)
         {
-            DataTable table = db.GetDataTable("select * from Games where State= 0");
+            var table = db.GetDataTable("select * from Games where State= 0");
             if (table.Rows.Count == 0)
                 return false;
             else
             {
-                db.ExecuteNonQury("update Games set FirstCard = '"+firstCard+"', SecondCard='"+secondCard+"', ThirdCard='"+thirdCard+"' where ID=" +int.Parse(table.Rows[0]["ID"].ToString()));
+                db.ExecuteNonQury("update Games set FirstCard = '" + firstCard + "', SecondCard='" + secondCard + "', ThirdCard='" + thirdCard + "' where ID=" + int.Parse(table.Rows[0]["ID"].ToString()));
                 return true;
             }
         }
@@ -55,12 +55,12 @@ namespace TexasWebService.Api
         [WebMethod]
         public bool DealFourthPublicCard(string fourthCard)
         {
-            DataTable table = db.GetDataTable("select * from Games where State= 0");
-            if (table.Rows.Count == 0 )
+            var table = db.GetDataTable("select * from Games where State= 0");
+            if (table.Rows.Count == 0)
                 return false;
             else
             {
-                db.ExecuteNonQury("update Games set FourthCard = '" + fourthCard + "' where ID=" +int.Parse(table.Rows[0]["ID"].ToString()));
+                db.ExecuteNonQury("update Games set FourthCard = '" + fourthCard + "' where ID=" + int.Parse(table.Rows[0]["ID"].ToString()));
                 return true;
             }
         }
@@ -68,8 +68,8 @@ namespace TexasWebService.Api
         [WebMethod]
         public bool DealFifthPublicCard(string fifthCard)
         {
-            DataTable table = db.GetDataTable("select * from Games where State= 0");
-            if (table.Rows.Count == 0 )
+            var table = db.GetDataTable("select * from Games where State= 0");
+            if (table.Rows.Count == 0)
                 return false;
             else
             {
@@ -81,12 +81,12 @@ namespace TexasWebService.Api
         [WebMethod]
         public bool DealPrivateCard(int playerID, string firstCard, string secondCard)
         {
-            DataTable table = db.GetDataTable("select * from Games where State= 0");
-            if (table.Rows.Count == 0 )
+            var table = db.GetDataTable("select * from Games where State= 0");
+            if (table.Rows.Count == 0)
                 return false;
             else
             {
-                DataTable privacardtable = db.GetDataTable("select * from PrivateCards where GameID=" + int.Parse(table.Rows[0]["ID"].ToString()) +"and PlayerID="+playerID);
+                var privacardtable = db.GetDataTable("select * from PrivateCards where GameID=" + int.Parse(table.Rows[0]["ID"].ToString()) + "and PlayerID=" + playerID);
                 if (privacardtable.Rows.Count == 0)
                     db.ExecuteNonQury("insert into PrivateCards(GameID, PlayerID, FirstCard, SecondCard) values(" + int.Parse(table.Rows[0]["ID"].ToString()) + ",'" + playerID + "','" + firstCard + "','" + secondCard + "')");
                 else if (privacardtable.Rows.Count == 1)
@@ -98,63 +98,56 @@ namespace TexasWebService.Api
         [WebMethod]
         public DataSet GetPublicCardForLive()
         {
-            
-            DataTable gameUnfinished = db.GetDataTable("select * from Games where State=0");
-            DataSet table = new DataSet();
-            if(gameUnfinished.Rows.Count!=0)
+            var gameUnfinished = db.GetDataTable("select * from Games where State=0");
+            var table = new DataSet();
+            if (gameUnfinished.Rows.Count != 0)
             {
-                int gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
+                var gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
 
                 table = db.GetDataSet("select * from Games where ID=" + gameID);
-                string card1 = table.Tables[0].Rows[0]["FirstCard"].ToString();
+                var card1 = table.Tables[0].Rows[0]["FirstCard"].ToString();
             }
-            
+
             return table;
         }
 
         [WebMethod]
         public DataSet GetPrivateCardForLive()
         {
-            DataTable gameUnfinished = db.GetDataTable("select * from Games where State=0");
-            DataSet table = new DataSet();
-            if(gameUnfinished.Rows.Count!=0)
+            var gameUnfinished = db.GetDataTable("select * from Games where State=0");
+            var table = new DataSet();
+            if (gameUnfinished.Rows.Count != 0)
             {
-                int gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
-
+                var gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
                 table = db.GetDataSet("select * from PrivateCards where GameID =" + gameID);
             }
-
             return table;
         }
 
         [WebMethod]
         public DataSet GetPrivateCardByPlayerID(int playerID)
         {
-            DataSet table = new DataSet();
-            DataTable gameUnfinished = db.GetDataTable("select * from Games where State=0");
-            if(gameUnfinished.Rows.Count!=0)
+            var table = new DataSet();
+            var gameUnfinished = db.GetDataTable("select * from Games where State=0");
+            if (gameUnfinished.Rows.Count != 0)
             {
-                int gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
-
+                var gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
                 table = db.GetDataSet("select * from PrivateCards where GameID =" + gameID + " and PlayerID=" + playerID);
             }
-           
-
             return table;
         }
 
         [WebMethod]
         public DataSet GetPrivateCardByGameID(int gameID)
         {
-            DataSet table = db.GetDataSet("select * from PrivateCards where GameID =" + gameID );
-
+            var table = db.GetDataSet("select * from PrivateCards where GameID =" + gameID);
             return table;
         }
 
         [WebMethod]
         public DataSet GetPublicCardsByGameID(int gameID)
         {
-            DataSet set = db.GetDataSet("");
+            var set = db.GetDataSet("");
             return set;
         }
 
@@ -164,44 +157,44 @@ namespace TexasWebService.Api
         //返回值：2位字符串，xy，对应界面上的格子，例如52，代表第5组的第2格，错误返回00
         public string DataUploadAPI(string card, string type)
         {
-            DataTable gameUnfinished = db.GetDataTable("select * from Games where State=0");
+            var gameUnfinished = db.GetDataTable("select * from Games where State=0");
             if (gameUnfinished.Rows.Count != 0)
             {
                 int gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
-                DataTable recordUnfinished = db.GetDataTable("select * from Records where State=0");
+                var recordUnfinished = db.GetDataTable("select * from Records where State=0");
                 int playerNumber = int.Parse(recordUnfinished.Rows[0]["PlayerNumber"].ToString());
 
-                DataTable privateCardsTable = db.GetDataTable("select * from PrivateCards where GameID="+gameID);
+                var privateCardsTable = db.GetDataTable("select * from PrivateCards where GameID=" + gameID);
                 int playerCount = privateCardsTable.Rows.Count;
 
                 //玩家顺序
                 if (type.Equals("0"))
                 {
-                    if(privateCardsTable.Rows[playerCount-1]["SecondCard"].ToString().Equals(""))
+                    if (privateCardsTable.Rows[playerCount - 1]["SecondCard"].ToString().Equals(""))
                     {
-                        db.ExecuteNonQury("update PrivateCards set SecondCard='"+card+"' where ID="+int.Parse(privateCardsTable.Rows[playerCount-1]["ID"].ToString()));
+                        db.ExecuteNonQury("update PrivateCards set SecondCard='" + card + "' where ID=" + int.Parse(privateCardsTable.Rows[playerCount - 1]["ID"].ToString()));
                         return playerCount + "2";
                     }
                     else
                     {
-                        db.ExecuteNonQury(string.Format("insert into PrivateCards(GameID,PlayerID,FirstCard) values({0},{1},'{2}')",gameID,(playerCount+1),card));
-                        return (playerCount+1)+"1";
+                        db.ExecuteNonQury(string.Format("insert into PrivateCards(GameID,PlayerID,FirstCard) values({0},{1},'{2}')", gameID, (playerCount + 1), card));
+                        return (playerCount + 1) + "1";
                     }
                 }
                 //发牌顺序
                 else if (type.Equals("1"))
                 {
-                    if(playerCount<playerNumber)
+                    if (playerCount < playerNumber)
                     {
                         db.ExecuteNonQury(string.Format("insert into PrivateCards(GameID,PlayerID,FirstCard) values({0},{1},'{2}')", gameID, (playerCount + 1), card));
                         return (playerCount + 1) + "1";
                     }
-                    else if(playerNumber==playerCount)
+                    else if (playerNumber == playerCount)
                     {
                         int thisPlayer = 0;
-                        for(int i=0;i<playerNumber;i++)
+                        for (int i = 0; i < playerNumber; i++)
                         {
-                            if(privateCardsTable.Rows[i]["SecondCard"].ToString().Equals(""))
+                            if (privateCardsTable.Rows[i]["SecondCard"].ToString().Equals(""))
                             {
                                 thisPlayer = i + 1;
                                 break;
@@ -213,7 +206,7 @@ namespace TexasWebService.Api
                     }
                 }
             }
-            
+
 
             return "00";
         }
@@ -234,47 +227,47 @@ namespace TexasWebService.Api
                 int playerCount = privateCardsTable.Rows.Count;
 
                 //玩家顺序
-                if(type.Equals("0"))
+                if (type.Equals("0"))
                 {
-                    if(privateCardsTable.Rows[playerCount-1]["SecondCard"].ToString().Equals(""))
+                    if (privateCardsTable.Rows[playerCount - 1]["SecondCard"].ToString().Equals(""))
                     {
-                        db.ExecuteNonQury("delete from PrivateCards where ID="+int.Parse(privateCardsTable.Rows[playerCount-1]["ID"].ToString()));
+                        db.ExecuteNonQury("delete from PrivateCards where ID=" + int.Parse(privateCardsTable.Rows[playerCount - 1]["ID"].ToString()));
                         return playerCount + "1";
                     }
                     else
                     {
-                        db.ExecuteNonQury("update PrivateCards set SecondCard='' where ID="+int.Parse(privateCardsTable.Rows[playerCount-1]["ID"].ToString()));
+                        db.ExecuteNonQury("update PrivateCards set SecondCard='' where ID=" + int.Parse(privateCardsTable.Rows[playerCount - 1]["ID"].ToString()));
                         return playerCount + "2";
                     }
                 }
                 //发牌顺序
                 else
                 {
-                    if(playerCount<playerNumber)
+                    if (playerCount < playerNumber)
                     {
-                        db.ExecuteNonQury("delete from PrivateCards where ID="+privateCardsTable.Rows[playerCount-1]["ID"].ToString());
+                        db.ExecuteNonQury("delete from PrivateCards where ID=" + privateCardsTable.Rows[playerCount - 1]["ID"].ToString());
                         return playerCount + "1";
                     }
                     else
                     {
                         int thisPlayer = 0;
-                        for(int i=0;i<playerNumber;i++)
+                        for (int i = 0; i < playerNumber; i++)
                         {
-                            if(privateCardsTable.Rows[i]["SecondCard"].ToString().Equals(""))
+                            if (privateCardsTable.Rows[i]["SecondCard"].ToString().Equals(""))
                             {
                                 thisPlayer = i + 1;
                                 break;
                             }
                         }
-                        if(thisPlayer==1)
+                        if (thisPlayer == 1)
                         {
-                            db.ExecuteNonQury("delete from PrivateCards where ID="+int.Parse(privateCardsTable.Rows[playerCount-1]["ID"].ToString()));
+                            db.ExecuteNonQury("delete from PrivateCards where ID=" + int.Parse(privateCardsTable.Rows[playerCount - 1]["ID"].ToString()));
                             return playerCount + "1";
                         }
-                        else if(thisPlayer>1&&thisPlayer<=playerNumber)
+                        else if (thisPlayer > 1 && thisPlayer <= playerNumber)
                         {
-                            db.ExecuteNonQury("update PrivateCards set SecondCard='' where ID="+int.Parse(privateCardsTable.Rows[thisPlayer-2]["ID"].ToString()));
-                            return (thisPlayer - 2)+"2";
+                            db.ExecuteNonQury("update PrivateCards set SecondCard='' where ID=" + int.Parse(privateCardsTable.Rows[thisPlayer - 2]["ID"].ToString()));
+                            return (thisPlayer - 2) + "2";
                         }
 
                     }

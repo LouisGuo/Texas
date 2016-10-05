@@ -29,22 +29,22 @@ namespace TexasWebService.Api
         [WebMethod]
         public bool NewGame()
         {
-            DataTable table = db.GetDataTable("select * from Records where State = 0");
+            var table = db.GetDataTable("select * from Records where State = 0");
             if (table.Rows.Count == 0)
                 return false;
             else
             {
                 db.ExecuteNonQury("update Games set State=1 where State=0");
-                db.ExecuteNonQury("insert into Games(RecordID, State) values("+int.Parse(table.Rows[0]["ID"].ToString())+",0) ");
-                DataTable gameUnfinished = db.GetDataTable("select * from Games where State=0");
-                int playerNumber=int.Parse(table.Rows[0]["PlayerNumber"].ToString());
+                db.ExecuteNonQury("insert into Games(RecordID, State) values(" + int.Parse(table.Rows[0]["ID"].ToString()) + ",0) ");
+                var gameUnfinished = db.GetDataTable("select * from Games where State=0");
+                int playerNumber = int.Parse(table.Rows[0]["PlayerNumber"].ToString());
                 int recordID = int.Parse(table.Rows[0]["ID"].ToString());
                 int gameID = int.Parse(gameUnfinished.Rows[0]["ID"].ToString());
-                
+
 
                 for (int i = 1; i <= playerNumber; i++)
                 {
-                    DataTable PreplayerChips1 = db.GetDataTable("select top 1 * from PlayerChips where RecordID=" + int.Parse(table.Rows[0]["ID"].ToString()) + "and PlayerID="+i+" order by ID DESC");
+                    var PreplayerChips1 = db.GetDataTable("select top 1 * from PlayerChips where RecordID=" + int.Parse(table.Rows[0]["ID"].ToString()) + "and PlayerID=" + i + " order by ID DESC");
                     int preStartChips1 = int.Parse(PreplayerChips1.Rows[0]["StartChips"].ToString());
                     int gainChips = int.Parse(PreplayerChips1.Rows[0]["GainChips"].ToString());
                     int bet11 = int.Parse(PreplayerChips1.Rows[0]["BetChips1"].ToString());
@@ -61,10 +61,10 @@ namespace TexasWebService.Api
         [WebMethod]
         public bool FinishGame()
         {
-            DataTable table = db.GetDataTable("select * from Games where State = 0 order by ID ");
-            if(table.Rows.Count!=0&&table!=null)
+            var table = db.GetDataTable("select * from Games where State = 0 order by ID ");
+            if (table.Rows.Count != 0 && table != null)
             {
-                db.ExecuteNonQury("update Games set State=1 where ID = "+int.Parse(table.Rows[0]["ID"].ToString()));
+                db.ExecuteNonQury("update Games set State=1 where ID = " + int.Parse(table.Rows[0]["ID"].ToString()));
             }
             return true;
         }
@@ -72,14 +72,14 @@ namespace TexasWebService.Api
         [WebMethod]
         public DataTable GetGames(int recordID)
         {
-            DataTable table = db.GetDataTable("select * from Games where RecordID = "+recordID);
+            var table = db.GetDataTable("select * from Games where RecordID = " + recordID);
             return table;
         }
 
         [WebMethod]
         public DataSet GetGameByGameID(int gameID)
         {
-            DataSet table = db.GetDataSet("select * from Games where ID = " + gameID);
+            var table = db.GetDataSet("select * from Games where ID = " + gameID);
             return table;
         }
     }
