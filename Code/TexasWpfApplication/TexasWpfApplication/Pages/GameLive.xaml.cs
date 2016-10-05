@@ -746,7 +746,12 @@ namespace TexasWpfApplication.Pages
 
         private void LoadResultPrivateCard()
         {
-            for (int i = 0; i < 8; i++)
+            // Wangguanru 只有只有一人跟的话不需要亮牌
+
+
+            // Wangguanru 8 -> allOperations.Count (中途退出时再连接报错)
+
+            for (int i = 0; allOperations.Count(o => o.Equals("弃牌")) < this.playerNumber - 1 && i < allOperations.Count; i++)
             {
                 if (!allOperations[i].Equals("弃牌"))
                 {
@@ -1523,43 +1528,7 @@ namespace TexasWpfApplication.Pages
 
             }
 
-            if (operationTable.Tables[0].Rows.Count > 0 &&
-                operationTable.Tables[0].Rows[operationTable.Tables[0].Rows.Count - 1]["Operation"].ToString().Equals("判定"))
-            {
-                LoadResultPrivateCard();
-            }
-            else
-            {
-                allOperations.Clear();
-                foreach (var item in operations)
-                {
-                    allOperations.Add(item.Content.ToString());
-                }
-                ServiceCard.CardSoapClient privatecardservice = myService.GetCard();
-                allPrivateCards.Clear();
-                for (int id = 0; id < 8; id++)
-                {
-                    DataSet privateCardSet = privatecardservice.GetPrivateCardByPlayerID(id + 1);
-                    if (privateCardSet.Tables.Count != 0)
-                    {
-                        DataTable tablePrivateCard = privateCardSet.Tables[0];
-                        if (tablePrivateCard.Rows.Count != 0)
-                        {
-                            string recordcard1 = tablePrivateCard.Rows[0]["FirstCard"].ToString();
-                            string recordcard2 = tablePrivateCard.Rows[0]["SecondCard"].ToString();
-                            allPrivateCards.Add(new Tuple<string, string>(recordcard1, recordcard2));
-                        }
-                        else
-                        {
-                            allPrivateCards.Add(new Tuple<string, string>(null, null));
-                        }
-                    }
-                    else
-                    {
-                        allPrivateCards.Add(new Tuple<string, string>(null, null));
-                    }
-                }
-            }
+
 
             //从服务器读取PublicCard，显示公共明牌
             ServiceCard.CardSoapClient serviceCard = myService.GetCard();
@@ -1625,7 +1594,54 @@ namespace TexasWpfApplication.Pages
             //DataSet privateCardSet = privatecardservice.GetPrivateCardByPlayerID(playerID);
 
 
+            var loadPrivateCard = operationTable.Tables[0].Rows.Count > 0 &&
+                operationTable.Tables[0].Rows[operationTable.Tables[0].Rows.Count - 1]["Operation"].ToString().Equals("判定");
+            var nextPlayerID = myService.GetBet().GetNextPlayerIDForLive1();
+            var s1 = "pack://application:,,,/Resources/Gray_1.png";
+            var s2 = "pack://application:,,,/Resources/Gray_2.png";
+            var s3 = "pack://application:,,,/Resources/Gray_3.png";
+            var loadPrivateCard1 = loadPrivateCard || (((nextPlayerID == 0 || nextPlayerID == -100)
+                            && this.card1.Source.ToString() != s1
+                            && this.card4.Source.ToString() != s2
+                            && this.card5.Source.ToString() != s3) || nextPlayerID == -1);
 
+
+            if (!loadPrivateCard)
+            {
+                allOperations.Clear();
+                foreach (var item in operations)
+                {
+                    allOperations.Add(item.Content.ToString());
+                }
+                ServiceCard.CardSoapClient privatecardservice = myService.GetCard();
+                allPrivateCards.Clear();
+                for (int id = 0; id < 8; id++)
+                {
+                    DataSet privateCardSet = privatecardservice.GetPrivateCardByPlayerID(id + 1);
+                    if (privateCardSet.Tables.Count != 0)
+                    {
+                        DataTable tablePrivateCard = privateCardSet.Tables[0];
+                        if (tablePrivateCard.Rows.Count != 0)
+                        {
+                            string recordcard1 = tablePrivateCard.Rows[0]["FirstCard"].ToString();
+                            string recordcard2 = tablePrivateCard.Rows[0]["SecondCard"].ToString();
+                            allPrivateCards.Add(new Tuple<string, string>(recordcard1, recordcard2));
+                        }
+                        else
+                        {
+                            allPrivateCards.Add(new Tuple<string, string>(null, null));
+                        }
+                    }
+                    else
+                    {
+                        allPrivateCards.Add(new Tuple<string, string>(null, null));
+                    }
+                }
+            }
+            if (loadPrivateCard1)
+            {
+                LoadResultPrivateCard();
+            }
         }
 
         private void imageQuit_MouseEnter(object sender, MouseEventArgs e)
