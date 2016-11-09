@@ -38,10 +38,10 @@
         <Label x:Name="label1" Content="余额：" HorizontalAlignment="Left" Margin="757.713,185.56,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
         <Label x:Name="yue1" Content="5000" HorizontalAlignment="Left" Margin="803.713,185.56,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
         <Image x:Name="imageQuit" Margin="10,710,966,10" Source="/Resources/Quit.png" Stretch="Fill" MouseEnter="imageQuit_MouseEnter" MouseLeave="imageQuit_MouseLeave" MouseLeftButtonUp="imageQuit_MouseLeftButtonUp" Cursor="Hand"/>
-        <Image x:Name="card81" Margin="285,259.5,699,455.5" Source="/Resources/Cards/BACK.png" Stretch="Fill" Height="53" Width="40" Visibility="Hidden"/>
-        <Image x:Name="card82" Margin="330,259.5,654,455.5" Source="/Resources/Cards/BACK.png" Stretch="Fill" Height="53" Width="40" Visibility="Hidden"/>
-        <Image x:Name="card11" Margin="637.5,259.5,346.5,455.5" Source="/Resources/Cards/BACK.png" Stretch="Fill" Height="53" Width="40" Visibility="Hidden"/>
-        <Image x:Name="card12" Margin="682.5,259.5,301.5,455.5" Source="/Resources/Cards/BACK.png" Stretch="Fill" Height="53" Width="40" Visibility="Hidden"/>
+        <Image x:Name="card81" Margin="285,259.5,699,455.5" Source="/Resources/Cards/c09.png" Stretch="Fill" Height="53" Width="40" Visibility="Hidden"/>
+        <Image x:Name="card82" Margin="330,259.5,654,455.5" Source="/Resources/Cards/c09.png" Stretch="Fill" Height="53" Width="40" Visibility="Hidden"/>
+        <Image x:Name="card11" Margin="670,260,314,456" Source="/Resources/Cards/c09.png" Stretch="Fill" Height="53" Width="40" Visibility="Hidden"/>
+        <Image x:Name="card12" Margin="714,260,270,456" Source="/Resources/Cards/c09.png" Stretch="Fill" Height="53" Width="40" Visibility="Hidden"/>
         <Image x:Name="card52" Margin="301,510,683,205" Source="/Resources/Cards/BACK.png" Stretch="Fill" Height="53" Width="40" Visibility="Hidden"/>
         <Image x:Name="card51" Margin="346,510,638,205" Source="/Resources/Cards/BACK.png" Stretch="Fill" Height="53" Width="40" Visibility="Hidden"/>
         <Image x:Name="card42" Margin="649,510,335,205" Source="/Resources/Cards/BACK.png" Stretch="Fill" Height="53" Width="40" Visibility="Hidden"/>
@@ -216,6 +216,6 @@
                 <ImageBrush ImageSource="NumBack.png"/>
             </Label.Background>
         </Label>
-        <local:UserControlChipsInPool x:Name="chipsInPool" HorizontalAlignment="Left" Margin="301,89,0,0" Panel.ZIndex="11" VerticalAlignment="Top" Visibility="Visible"/>
+        <local:UserControlChipsInPool x:Name="chipsInPool" HorizontalAlignment="Left" Margin="353,89,0,0" Panel.ZIndex="11" VerticalAlignment="Top" Visibility="Hidden"/>
     </Grid>
 </Window>
