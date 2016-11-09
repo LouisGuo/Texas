@@ -216,6 +216,6 @@
                 <ImageBrush ImageSource="NumBack.png"/>
             </Label.Background>
         </Label>
-        <local:UserControlChipsInPool x:Name="chipsInPool" HorizontalAlignment="Left" Margin="375,90,0,0" Panel.ZIndex="11" VerticalAlignment="Top" Visibility="Hidden"/>
+        <local:UserControlChipsInPool x:Name="chipsInPool" HorizontalAlignment="Left" Margin="301,89,0,0" Panel.ZIndex="11" VerticalAlignment="Top" Visibility="Visible"/>
     </Grid>
 </Window>

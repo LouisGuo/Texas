@@ -1,7 +1,15 @@
-﻿<Application x:Class="TexasWpfApplication.App"
+﻿<!--<Application x:Class="TexasWpfApplication.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="Pages/LoginAdmin.xaml" DispatcherUnhandledException="Application_DispatcherUnhandledException" Exit="App_Exit" Startup="App_Startup">
+    <Application.Resources>
+    </Application.Resources>
+</Application>-->
+    
+<Application x:Class="TexasWpfApplication.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="Pages/Window1.xaml" DispatcherUnhandledException="Application_DispatcherUnhandledException" Exit="App_Exit" Startup="App_Startup">
     <Application.Resources>
     </Application.Resources>
 </Application>
